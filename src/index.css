@@ -1,0 +1,11 @@
+@import  '../node_modules/bootstrap/dist/css/bootstrap.css';
+
+body {
+  background-color: #cdebb9; /* Light background */
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
