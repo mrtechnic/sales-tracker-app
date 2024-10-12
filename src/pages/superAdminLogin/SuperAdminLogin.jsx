@@ -17,31 +17,36 @@ const SuperAdminLogin = () => {
         }
 
     setLoading(true);
-    setError('');
+    // setError('');
 
-    try{
-        console.log('sending request to API....');
-        const response = await fetch('/api/login', {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json',
-            },
-            body: JSON.stringify({email, password}),
-        });
+    // try{
+    //     console.log('sending request to API....');
+    //     const response = await fetch('/api/login', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-type': 'application/json',
+    //         },
+    //         body: JSON.stringify({email, password}),
+    //     });
 
-        if (response.ok){
-            const data = await response.json();
+    //     if (response.ok){
+    //         const data = await response.json();
 
-            localStorage.setItem('authToken', data.token);
-            navigate('/dashboard');
-        } else {
-            setError('Invalid email or password.');
-        }
-    } catch (err) {
-        setError('Network error, please try again later.');
-    } finally{
+    //         localStorage.setItem('authToken', data.token);
+    //         navigate('/dashboard');
+    //     } else {
+    //         setError('Invalid email or password.');
+    //     }
+    // } catch (err) {
+    //     setError('Network error, please try again later.');
+    // } finally{
+    //     setLoading(false);
+    // }
+
+    setTimeout(() => {
         setLoading(false);
-    }
+        navigate('/superAdminDash');  // Redirect to the dashboard
+      }, 1000);
     };
   return (
     <div>
@@ -64,7 +69,7 @@ const SuperAdminLogin = () => {
                 <Link to="#" className="btn btn-link">Forgot Password?</Link>
             </div>
         </form>
-        <div className="text-center mt-3">
+        <div className="text-center mt-3" id="login-btns" >
             <Link to="/" className="btn btn-primary">Staff Login</Link>
             <Link to="/admin-login" className="btn btn-warning">Admin Login</Link>
         </div>
