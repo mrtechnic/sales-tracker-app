@@ -4,6 +4,7 @@ import SuperAdminLogin from './pages/superAdminLogin/SuperAdminLogin';
 import SuperAdminDash from './Dashboards/superAdminDash';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'font-awesome/css/font-awesome.min.css';
 import './App.css';
 
 
