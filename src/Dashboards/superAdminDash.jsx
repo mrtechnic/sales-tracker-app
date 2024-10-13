@@ -23,7 +23,7 @@ const SuperAdminDash = () => {
       <Container fluid className="vh-100"> {/* Full height of the viewport */}
         <Row className="h-100">
           {/* Sidebar with fixed width and full height */}
-          <Col md={3} className="p-0 bg-light sidebar">
+          <Col md={2} className="p-0 bg-light sidebar">
             <Sidebar onSelectCategory={handleSelectCategory} />
           </Col>
 

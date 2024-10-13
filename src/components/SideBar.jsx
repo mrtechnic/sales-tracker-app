@@ -1,15 +1,17 @@
-// src/components/SideBar.js
 import React from 'react';
+import './Sidebar.css'; // Import the custom CSS
 
-const Sidebar = ({ onSelectCategory }) => {
+const Sidebar = ({ onSelectCategory, selectedCategory }) => {
   return (
-    <div className="d-flex flex-column flex-shrink-0 p-3 bg-dark" style={{ width: '280px', height: '100%' }}>
-      <h2 className="fs-4" style={{color: "#1a78ab"}} >Dashboard</h2>
+    <div className="d-flex flex-column flex-shrink-0 p-3" style={{ width: '200px', height: '100%', backgroundColor: 'grey' }}>
+      <a href="/superAdminDash" style={{ textDecoration: 'none' }}> {/* No underline */}
+        <h3 className="fs-4" style={{ color: "#fff" }}><strong>Dashboard</strong></h3>
+      </a>
       <ul className="nav nav-pills flex-column mb-auto">
         <li className="nav-item">
           <a 
             href="#products" 
-            className="nav-link active" 
+            className={`nav-link ${selectedCategory === "Products" ? "active" : ""}`}
             onClick={() => onSelectCategory("Products")}
           >
             Products
@@ -18,7 +20,7 @@ const Sidebar = ({ onSelectCategory }) => {
         <li className="nav-item">
           <a 
             href="#staff" 
-            className="nav-link" 
+            className={`nav-link ${selectedCategory === "Staff" ? "active" : ""}`} 
             onClick={() => onSelectCategory("Staff")}
           >
             Staff
@@ -27,7 +29,7 @@ const Sidebar = ({ onSelectCategory }) => {
         <li className="nav-item">
           <a 
             href="#inventory" 
-            className="nav-link" 
+            className={`nav-link ${selectedCategory === "Inventory" ? "active" : ""}`} 
             onClick={() => onSelectCategory("Inventory")}
           >
             Inventory
@@ -36,7 +38,7 @@ const Sidebar = ({ onSelectCategory }) => {
         <li className="nav-item">
           <a 
             href="#analytics" 
-            className="nav-link" 
+            className={`nav-link ${selectedCategory === "Analytics" ? "active" : ""}`} 
             onClick={() => onSelectCategory("Analytics")}
           >
             Analytics

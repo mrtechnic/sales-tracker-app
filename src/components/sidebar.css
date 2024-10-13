@@ -1,0 +1,25 @@
+/* Sidebar.css */
+.nav-link {
+    background-color: grey !important;  /* Default background color */
+    color: white !important;              /* Default text color */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+  }
+  
+  /* Hover state */
+  .nav-link:hover {
+    background-color: white !important;  /* Background color on hover */
+    color: grey !important;            /* Text color on hover */
+  }
+  
+  /* Active state - ensure it maintains the hover effect */
+  .nav-link.active {
+    background-color: white !important;  /* Keep background grey when active */
+    color: grey !important;            /* Keep text white when active */
+  }
+  
+  /* Apply the same hover effect to active links as well */
+  .nav-link.active:hover {
+    background-color: white !important;  /* Ensure it stays grey on hover */
+    color: grey !important;            /* Ensure it stays white on hover */
+  }
+  
