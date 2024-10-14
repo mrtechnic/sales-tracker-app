@@ -24,7 +24,7 @@ const Navbar = () => {
             className="btn btn-outline-secondary me-3" // Margin end for spacing
             onClick={toggleFullScreen}
           >
-            <i className="fa fa-expand" aria-hidden="true"></i>
+            <i className="fa fa-expand" id='toggle-screen' style={{ fontSize: '5px !important' }} aria-hidden="true"></i> {/* Reduced icon size */}
           </button>
 
           {/* Profile Dropdown with Logout */}
@@ -33,7 +33,7 @@ const Navbar = () => {
               className="btn btn-outline-secondary"
               id="dropdown-basic"
             >
-              <i className="fa fa-user-circle" aria-hidden="true"></i>
+              <i className="fa fa-user-circle" style={{ fontSize: '5px !important' }} aria-hidden="true"></i> {/* Reduced icon size */}
             </Dropdown.Toggle>
 
             <Dropdown.Menu align="end"> {/* Align dropdown to the right */}
