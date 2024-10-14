@@ -23,7 +23,7 @@ const Sidebar = ({ onSelectCategory, selectedCategory }) => {
             className={`nav-link ${selectedCategory === "Staff" ? "active" : ""}`}
             onClick={() => onSelectCategory("Staff")}
           >
-            Staff
+            Branch
           </a>
         </li>
         <li className="nav-item">
