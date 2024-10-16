@@ -4,54 +4,36 @@ import Sidebar from '../components/SideBar';
 import Navbar from '../components/NavBar';
 import BarChart from '../components/BarChart'; 
 import DoughnutChart from '../components/DoughnutChart'; 
+import RecentSalesOrder from '../components/RecentSalesOrder';  // Import the RecentSalesOrder component
 
 const SuperAdminDash = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   
-  // Example best-selling products data
-  const bestSellingProducts = [
-    { name: 'Product A', sales: 30000 },
-    { name: 'Product B', sales: 25000 },
-    { name: 'Product C', sales: 18000 },
-  ];
-
-  // Prepare data for the Doughnut chart
-  const doughnutData = {
-    labels: bestSellingProducts.map(product => product.name), // Product names
-    datasets: [
-      {
-        label: 'Best Selling Products',
-        data: bestSellingProducts.map(product => product.sales), // Sales figures
-        backgroundColor: ['#36A2EB', '#FF6384', '#FFCE56'], // Colors for each segment
-        hoverOffset: 3,
-      },
+  // Example best-selling products per branch data
+  const productsPerBranch = {
+    branches: ["Branch A", "Branch B", "Branch C", "Branch D", "Branch E"],
+    products: [
+      { name: "Product A", sales: [5000, 10000, 7000, 8000, 6000] }, 
+      { name: "Product B", sales: [4000, 9000, 6000, 7000, 5000] },  
+      { name: "Product C", sales: [3000, 8000, 5000, 6000, 4000] },
+      { name: "Product D", sales: [3000, 8000, 5000, 6000, 4000] },
+      { name: "Product E", sales: [3000, 8000, 5000, 6000, 4000] }
     ],
   };
 
-  // Example sales data for the Bar chart
-  const salesData = [30000, 50000, 70000, 90000, 120000]; // Sales numbers
-  const branchLabels = ["Branch A", "Branch B", "Branch C", "Branch D", "Branch E"]; // Corresponding branch labels
-
-  // Prepare data for the Bar chart
-  const barData = {
-    labels: branchLabels,
-    datasets: [
-      {
-        label: 'Sales per Branch',
-        data: salesData,
-        backgroundColor: '#42A5F5',
-        borderColor: '#1E88E5',
-        borderWidth: 1,
-      },
-    ],
+  // Prepare clustered bar data
+  const clusteredBarData = {
+    labels: productsPerBranch.branches, 
+    datasets: productsPerBranch.products.map((product, index) => ({
+      label: product.name,
+      data: product.sales,
+      backgroundColor: ['#140CA8', '#C912B7', '#EDf514', '#EB3437', '#088724'][index],
+      borderColor: '#1E88E5',
+      borderWidth: 0,
+    })),
   };
 
-  const handleSelectCategory = (category) => {
-    setSelectedCategory(category);
-  };
-
-  const cardHeight = { height: '300px' };
-
+  // Bar chart options
   const barOptions = {
     responsive: true,
     maintainAspectRatio: false,
@@ -61,6 +43,14 @@ const SuperAdminDash = () => {
         position: 'top',
       },
     },
+  };
+
+  const doughnutData = {
+    labels: ["Product A", "Product B", "Product C", "Product D", "Product E"],
+    datasets: [{
+      data: [30000, 25000, 18000, 40000, 18000],
+      backgroundColor: ['#140CA8', '#C912B7', '#EDf514', '#EB3437', '#088724'],
+    }],
   };
 
   const doughnutOptions = {
@@ -74,30 +64,31 @@ const SuperAdminDash = () => {
     },
   };
 
+  const handleSelectCategory = (category) => setSelectedCategory(category);
+
   return (
     <div>
       <Navbar />
-      <Container fluid className="vh-100"> 
+      <Container fluid className="vh-100">
         <Row className="h-100">
           <Col md={2} className="p-0 bg-light sidebar">
             <Sidebar onSelectCategory={handleSelectCategory} />
           </Col>
-
           <Col md={9}>
             <Row className="mt-4">
               <Col>
                 <Row>
                   <Col md={6} className="mb-4">
-                    <Card style={cardHeight}> 
+                    <Card style={{ height: '300px' }}>
                       <Card.Body>
-                        <Card.Title>Sales per Branch </Card.Title>
-                        <BarChart data={barData} options={barOptions} />
+                        <Card.Title>Sales per Branch</Card.Title>
+                        <BarChart data={clusteredBarData} options={barOptions} />
                       </Card.Body>
                     </Card>
                   </Col>
-
+                  
                   <Col md={6} className="mb-4">
-                    <Card style={cardHeight}>
+                    <Card style={{ height: '300px' }}>
                       <Card.Body>
                         <Card.Title>Best Selling Products</Card.Title>
                         <DoughnutChart data={doughnutData} options={doughnutOptions} />
@@ -111,16 +102,18 @@ const SuperAdminDash = () => {
                     <Card.Body>
                       <Card.Title>Products</Card.Title>
                       <ul>
-                        {bestSellingProducts.map((product, index) => (
+                        {productsPerBranch.products.map((product, index) => (
                           <li key={index}>{product.name}</li>
                         ))}
                       </ul>
                     </Card.Body>
                   </Card>
                 )}
-                {/* Other category rendering goes here... */}
               </Col>
             </Row>
+
+            {/* Add Recent Sales Order below the charts */}
+            <RecentSalesOrder />
           </Col>
         </Row>
       </Container>
