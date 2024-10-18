@@ -1,25 +1,49 @@
-/* Sidebar.css */
+
 .nav-link {
-    background-color: grey !important;  /* Default background color */
-    color: white !important;              /* Default text color */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
-  }
-  
-  /* Hover state */
-  .nav-link:hover {
-    background-color: white !important;  /* Background color on hover */
-    color: grey !important;            /* Text color on hover */
-  }
-  
-  /* Active state - ensure it maintains the hover effect */
-  .nav-link.active {
-    background-color: white !important;  /* Keep background grey when active */
-    color: grey !important;            /* Keep text white when active */
-  }
-  
-  /* Apply the same hover effect to active links as well */
-  .nav-link.active:hover {
-    background-color: white !important;  /* Ensure it stays grey on hover */
-    color: grey !important;            /* Ensure it stays white on hover */
-  }
-  
+  background-color: rgb(224, 47, 47) !important;  
+  color: white !important;            
+  transition: background-color 0.3s ease, color 0.3s ease; 
+  padding: 0.75rem 1rem;            
+  border-radius: 0.375rem;          
+}
+
+
+.nav-link:hover {
+  background-color: white !important; 
+  color: rgb(224, 47, 47) !important;
+}
+
+
+.nav-link.active {
+  background-color: white !important; 
+  color: rgb(224, 47, 47) !important;  
+}
+
+.nav-link.active:hover {
+  background-color: white !important; 
+  color: rgb(224, 47, 47) !important;             
+}
+
+.dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.dropdown-content.open {
+  max-height: 500px;
+}
+
+
+.dash{
+  border-bottom: 5px solid white;
+}
+
+.dash h4:hover{
+  font-size: 25px;
+}
+
+.dash-items{
+  margin: 30px 0;
+  padding: 20px 0;
+}

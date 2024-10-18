@@ -1,5 +1,3 @@
-// src/components/DoughnutChart.js
-
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title } from 'chart.js';
@@ -34,7 +32,7 @@ const defaultOptions = {
 
 const DoughnutChart = ({ data = bestSellingProductsData, options = defaultOptions }) => {
   return (
-    <div style={{ height: '100%', width: '100%', padding: '20px 0 10px', margin: '-15px 10px' }}>
+    <div style={{ height: '100%', width: '100%', padding: '15px 0 10px', margin: '-25px 10px' }}>
       <Doughnut data={data} options={options} />
     </div>
   );

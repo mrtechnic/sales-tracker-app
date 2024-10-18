@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import './superadminlogin.css';
 
 const SuperAdminLogin = () => {
     const [email, setEmail] = useState('');
@@ -63,15 +64,16 @@ const SuperAdminLogin = () => {
             </div>
             {error && <div className="text-danger text-center">{error}</div>}
             <div className="text-center">
-                <button type="submit" className="btn btn-primary" disabled={loading}> {loading ? 'Signing In...' : 'Sign In'}</button>
+                <button type="submit" className="super-admin-btn" style={{color: 'white', backgroundColor: 'red', border: 'none', height: '40px', width: '30%', borderRadius: '5px',}} disabled={loading}> {loading ? 'Signing In...' : 'Sign In'}</button>
             </div>
             <div className="text-center mt-3">
                 <Link to="#" className="btn btn-link">Forgot Password?</Link>
             </div>
         </form>
         <div className="text-center mt-3" id="login-btns" >
-            <Link to="/" className="btn btn-primary">Staff Login</Link>
-            <Link to="/admin-login" className="btn btn-warning">Admin Login</Link>
+           <div><Link to="/" className="staff-btn-login">Staff Login</Link></div>
+            {/* <div><Link to="/admin-login" className="btn btn-warning">Admin Login</Link></div> */}
+            
         </div>
     </div>
     </div>

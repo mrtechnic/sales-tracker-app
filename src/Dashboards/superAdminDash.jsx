@@ -4,12 +4,12 @@ import Sidebar from '../components/SideBar';
 import Navbar from '../components/NavBar';
 import BarChart from '../components/BarChart'; 
 import DoughnutChart from '../components/DoughnutChart'; 
-import RecentSalesOrder from '../components/RecentSalesOrder';  // Import the RecentSalesOrder component
+import RecentSalesOrder from '../components/RecentSalesOrder'; 
 
 const SuperAdminDash = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   
-  // Example best-selling products per branch data
+  
   const productsPerBranch = {
     branches: ["Branch A", "Branch B", "Branch C", "Branch D", "Branch E"],
     products: [
@@ -21,7 +21,7 @@ const SuperAdminDash = () => {
     ],
   };
 
-  // Prepare clustered bar data
+  
   const clusteredBarData = {
     labels: productsPerBranch.branches, 
     datasets: productsPerBranch.products.map((product, index) => ({
@@ -81,7 +81,7 @@ const SuperAdminDash = () => {
                   <Col md={6} className="mb-4">
                     <Card style={{ height: '300px' }}>
                       <Card.Body>
-                        <Card.Title>Sales per Branch</Card.Title>
+                        <Card.Title style={{color: '#e02f2f'}}><strong>Sales per Branch</strong></Card.Title>
                         <BarChart data={clusteredBarData} options={barOptions} />
                       </Card.Body>
                     </Card>
@@ -90,7 +90,7 @@ const SuperAdminDash = () => {
                   <Col md={6} className="mb-4">
                     <Card style={{ height: '300px' }}>
                       <Card.Body>
-                        <Card.Title>Best Selling Products</Card.Title>
+                        <Card.Title style={{color: '#e02f2f'}}><strong>Best Selling Products</strong></Card.Title>
                         <DoughnutChart data={doughnutData} options={doughnutOptions} />
                       </Card.Body>
                     </Card>
@@ -112,7 +112,7 @@ const SuperAdminDash = () => {
               </Col>
             </Row>
 
-            {/* Add Recent Sales Order below the charts */}
+
             <RecentSalesOrder />
           </Col>
         </Row>

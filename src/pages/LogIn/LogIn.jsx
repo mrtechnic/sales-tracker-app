@@ -17,15 +17,15 @@ const LogIn = () => {
                 <input type="password" className="form-control" id="password" placeholder="Enter your password" required />
             </div>
             <div className="text-center">
-                <button type="submit" className="btn btn-primary">Sign In</button>
+                <button type="submit" className="staff-btn">Sign In</button>
             </div>
             <div className="text-center mt-3">
                 <Link to="#" className="btn btn-link">Forgot Password?</Link>
             </div>
         </form>
         <div className="text-center mt-3">
-            <Link to="/SuperAdminLogin" className="btn btn-danger">Super Admin Login</Link>
-            <Link to="/admin-login" className="btn btn-warning">Admin Login</Link>
+            <div className="super-log"><Link to="/SuperAdminLogin" className="btn btn-danger">Super Admin Login</Link></div>
+            {/* <div><Link to="/admin-login" className="btn btn-warning">Admin Login</Link></div>  */}
         </div>
     </div>
     </div>

@@ -9,7 +9,7 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 const BarChart = ({ data, options }) => {
   return (
-    <div style={{ height: '100%', width: '100%', padding: '30px' }}>
+    <div style={{ height: '100%', width: '100%', padding: '30px 20px', margin: '-30px 10px' }}>
       <Bar data={data} options={options} />
     </div>
   );
