@@ -24,7 +24,7 @@ const LogIn = () => {
             </div>
         </form>
         <div className="text-center mt-3">
-            <div className="super-log"><Link to="/SuperAdminLogin" className="btn btn-danger">Super Admin Login</Link></div>
+            <div className="super-log"><Link to="/SuperAdminLogin" style={{backgroundColor: 'red', color: 'white', height: '40px', padding: '5px', borderRadius: '5px'}}>Super Admin Login</Link></div>
             {/* <div><Link to="/admin-login" className="btn btn-warning">Admin Login</Link></div>  */}
         </div>
     </div>

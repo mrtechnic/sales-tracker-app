@@ -127,29 +127,13 @@ const Sidebar = ({ onSelectCategory, selectedCategory }) => {
           {/* Analytics */}
           <li className="nav-item mb-2">
             <a
-              href="#analytics"
+              href="/Analytics"
               className={`nav-link d-flex justify-content-between ${selectedCategory === "Analytics" ? "active bg-light text-dark" : "text-white"}`}
               onClick={() => toggleDropdown("Analytics")}
             >
               <div><i className="bi bi-graph-up-arrow me-2"></i> Analytics</div>
-              <i className={`bi ${openDropdown === "Analytics" ? "bi-caret-up-fill" : "bi-caret-down-fill"}`}></i>
             </a>
-            <div className={`dropdown-content ${openDropdown === "Analytics" ? "open" : ""}`}>
-              <ul className="nav flex-column ms-3">
-                <li className="nav-item">
-                  <a href="#subitem1" className="nav-link text-white" onClick={() => onSelectCategory("Subitem1")}>
-                    <i className="bi bi-bar-chart-line-fill me-2"></i> Subitem 1
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a href="#subitem2" className="nav-link text-white" onClick={() => onSelectCategory("Subitem2")}>
-                    <i className="bi bi-pie-chart-fill me-2"></i> Subitem 2
-                  </a>
-                </li>
-              </ul>
-            </div>
           </li>
-
         </ul>
       </div>
     </div>

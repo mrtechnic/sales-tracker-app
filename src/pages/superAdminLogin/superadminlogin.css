@@ -1,10 +1,10 @@
 .login-container {
-    max-width: 400px; /* Set max width for the form */
-    margin: 100px auto; /* Center the form vertically and horizontally */
-    padding: 20px; /* Add some padding */
-    background-color: white; /* White background for the form */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    max-width: 400px; 
+    margin: 100px auto; 
+    padding: 20px; 
+    background-color: white; 
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
 }
  
 .staff-btn-login{
@@ -14,6 +14,11 @@
     height: 40px;
     align-items: center;
     border-radius: 5px;
+}
+
+.staff-btn-login:hover{
+    color: white;
+    font-size:larger;
 }
 
 /* #login-btns{

@@ -10,6 +10,7 @@ import CreateInventory from './components/CreateInventory';
 import ViewInventory from './components/ViewInventory';
 import CreateStaff from './components/CreateStaff';
 import ViewStaffs from './components/ViewStaffs';
+import Analytics from './components/Analytics';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -36,7 +37,7 @@ function App() {
           <Route path="/ViewInventory" element={<ViewInventory />} />
           <Route path="/CreateStaff" element={<CreateStaff />} />
           <Route path="/ViewStaffs" element={<ViewStaffs />} />
-
+          <Route path="/Analytics" element={<Analytics />} />
         </Routes>
       </Router>
       
