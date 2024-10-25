@@ -1,5 +1,6 @@
 import React from 'react';
 import { Table, Card } from 'react-bootstrap';
+import './recentsalesorder.css';
 
 const RecentSalesOrder = () => {
   const salesOrders = [
@@ -36,9 +37,9 @@ const RecentSalesOrder = () => {
   return (
     <Card className="mt-4">
       <Card.Body>
-        <Card.Title style={{color: '#e02f2f'}}><strong>Recent Sales Orders</strong></Card.Title>
-        <Table responsive hover>
-          <thead style={{color: '#e02f2f'}}>
+        <Card.Title><strong>Recent Sales Orders</strong></Card.Title>
+        <Table responsive="sm" hover>
+          <thead>
             <tr>
               <th>Order Date</th>
               <th>Items</th>
@@ -47,7 +48,7 @@ const RecentSalesOrder = () => {
               <th>Status</th>
             </tr>
           </thead>
-          <tbody style={{color: '#e02f2f'}}>
+          <tbody>
             {salesOrders.map((order, index) => (
               <tr key={index}>
                 <td>{order.date}</td>
@@ -63,19 +64,5 @@ const RecentSalesOrder = () => {
     </Card>
   );
 };
-
-
-// const getStatusClass = (status) => {
-//   switch (status) {
-//     case "Paid":
-//       return "success";
-//     case "Pending":
-//       return "warning";
-//     case "Overdue":
-//       return "danger";
-//     default:
-//       return "secondary";
-//   }
-// };
 
 export default RecentSalesOrder;

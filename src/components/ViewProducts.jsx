@@ -1,4 +1,6 @@
 import React from 'react';
+import Navbar from './NavBar';
+import Sidebar from './SideBar';
 import './viewproducts.css'; 
 
 const ViewProducts = () => {
@@ -10,8 +12,13 @@ const ViewProducts = () => {
   ];
 
   return (
+    <div>
+      <Navbar />
+      <div className="app-body">
+        <Sidebar />
+        <div className="content">
     <div className="view-products-container">
-      <div className='products-list'><h2>Products List</h2></div>
+      <div className='products-list'><h2>PRODUCTS</h2></div>
       {products.length === 0 ? (
         <p>No products available.</p>
       ) : (
@@ -34,6 +41,9 @@ const ViewProducts = () => {
           </tbody>
         </table>
       )}
+    </div>
+    </div>
+    </div>
     </div>
   );
 };

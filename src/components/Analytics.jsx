@@ -1,5 +1,6 @@
-// Import necessary libraries and components
 import React, { useState, useEffect } from 'react';
+import Navbar from './NavBar';
+import Sidebar from './SideBar';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, LineChart, Line, PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 import { Card, Container, Row, Col } from 'react-bootstrap';
 
@@ -9,7 +10,7 @@ const salesData = [
     { name: 'Product B', sales: 7000, branch1: 2000, branch2: 2500, branch3: 1000, branch4: 1500 },
     { name: 'Product C', sales: 8000, branch1: 2500, branch2: 3000, branch3: 800, branch4: 1700 },
     { name: 'Product D', sales: 9000, branch1: 4000, branch2: 3000, branch3: 1000, branch4: 1000 },
-  ];
+];
 
 // Yearly sales trend data
 const salesTrendData = [
@@ -38,9 +39,9 @@ const pieData = [
 const COLORS = ['#140CA8', '#C912B7', '#EDf514', '#EB3437', '#088724'];
 
 const Analytics = () => {
-  // Handle dynamic data loading with useEffect
   const [data, setData] = useState([]);
   const [selectedYear, setSelectedYear] = useState(2020); // State for selected year
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
     setData(salesData); // Use mock data for now
@@ -48,109 +49,120 @@ const Analytics = () => {
 
   const filteredMonthlyData = monthlySalesData.filter(item => item.year === selectedYear);
 
+  const handleSelectCategory = (category) => setSelectedCategory(category);
+
   return (
-    <Container fluid>
-      <Row className="mt-4">
-        {/* Bar Chart for Sales by Product */}
-        <Col md={6}>
-          <Card>
-            <h4 className="text-center">Sales by Product</h4>
-            <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={data}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Bar dataKey="sales" fill="#088724" />
-                <Bar dataKey="branch1" fill="#140CA8" />
-                <Bar dataKey="branch2" fill="#C912B7" />
-                <Bar dataKey="branch3" fill="#EDf514" />
-                <Bar dataKey="branch4" fill="#EB3437" />
-              </BarChart>
-            </ResponsiveContainer>
-          </Card>
-        </Col>
+    <div className="dashboard-container">
+      <Navbar />
+      <Container fluid className="app-body">
+        <Row className="mt-4">
+          <Col md={2} className="sidebar">
+            <Sidebar onSelectCategory={handleSelectCategory} />
+          </Col>
+          <Col md={10} className="dashboard-content">
+            <Row>
+              {/* Bar Chart for Sales by Product */}
+              <Col md={6}>
+                <Card>
+                  <h4 className="text-center">Sales by Product</h4>
+                  <ResponsiveContainer width="100%" height={300}>
+                    <BarChart data={data}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="name" />
+                      <YAxis />
+                      <Tooltip />
+                      <Legend />
+                      <Bar dataKey="sales" fill="#088724" />
+                      <Bar dataKey="branch1" fill="#140CA8" />
+                      <Bar dataKey="branch2" fill="#C912B7" />
+                      <Bar dataKey="branch3" fill="#EDf514" />
+                      <Bar dataKey="branch4" fill="#EB3437" />
+                    </BarChart>
+                  </ResponsiveContainer>
+                </Card>
+              </Col>
 
-        {/* Pie Chart for Best-Selling Products */}
-        <Col md={6}>
-          <Card>
-            <h4 className="text-center">Best-Selling Products</h4>
-            <ResponsiveContainer width="100%" height={300}>
-              <PieChart>
-                <Pie
-                  data={pieData}
-                  cx="50%"
-                  cy="50%"
-                  labelLine={false}
-                  label={({ name, value }) => `${name}: ${value}`}
-                  outerRadius={120}
-                  fill="#8884d8"
-                  dataKey="value"
-                >
-                  {pieData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                  ))}
-                </Pie>
-                <Tooltip />
-              </PieChart>
-            </ResponsiveContainer>
-          </Card>
-        </Col>
-      </Row>
+              {/* Pie Chart for Best-Selling Products */}
+              <Col md={6}>
+                <Card>
+                  <h4 className="text-center">Best-Selling Products</h4>
+                  <ResponsiveContainer width="100%" height={300}>
+                    <PieChart>
+                      <Pie
+                        data={pieData}
+                        cx="50%"
+                        cy="50%"
+                        labelLine={false}
+                        label={({ name, value }) => `${name}: ${value}`}
+                        outerRadius={120}
+                        fill="#8884d8"
+                        dataKey="value"
+                      >
+                        {pieData.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                        ))}
+                      </Pie>
+                      <Tooltip />
+                    </PieChart>
+                  </ResponsiveContainer>
+                </Card>
+              </Col>
+            </Row>
 
-      <Row className="mt-4">
-  {/* Line Chart for Yearly Sales Trends */}
-  <Col md={6}>
-    <Card>
-      <h4 className="text-center">Sales Trends Over Time</h4>
-      <ResponsiveContainer width="100%" height={400}>
-        <LineChart data={salesTrendData}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="year" label={{ value: "Year", position: "insideBottomRight", offset: 0 }} />
-          <YAxis label={{ value: "Sales", angle: -90, position: "insideLeft" }} />
-          <Tooltip />
-          <Legend />
-          <Line type="monotone" dataKey="productA" stroke="#140CA8" name="Product A" />
-          <Line type="monotone" dataKey="productB" stroke="#C912B7" name="Product B" />
-          <Line type="monotone" dataKey="productC" stroke="#EDf514" name="Product C" />
-          <Line type="monotone" dataKey="productD" stroke="#EB3437" name="Product D" />
-        </LineChart>
-      </ResponsiveContainer>
-    </Card>
-  </Col>
+            <Row className="mt-4">
+              {/* Line Chart for Yearly Sales Trends */}
+              <Col md={6}>
+                <Card>
+                  <h4 className="text-center">Sales Trends Over Time</h4>
+                  <ResponsiveContainer width="100%" height={400}>
+                    <LineChart data={salesTrendData}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="year" label={{ value: "Year", position: "insideBottomRight", offset: 0 }} />
+                      <YAxis label={{ value: "Sales", angle: -90, position: "insideLeft" }} />
+                      <Tooltip />
+                      <Legend />
+                      <Line type="monotone" dataKey="productA" stroke="#140CA8" name="Product A" />
+                      <Line type="monotone" dataKey="productB" stroke="#C912B7" name="Product B" />
+                      <Line type="monotone" dataKey="productC" stroke="#EDf514" name="Product C" />
+                      <Line type="monotone" dataKey="productD" stroke="#EB3437" name="Product D" />
+                    </LineChart>
+                  </ResponsiveContainer>
+                </Card>
+              </Col>
 
-  {/* Line Chart for Monthly Sales Trends (January to December) */}
-  <Col md={6}>
-    <Card>
-      <h4 className="text-center">Monthly Sales Trends (January to December)</h4>
-      <div className="d-flex justify-content-center mb-3">
-        {/* Dropdown to select year */}
-        <select onChange={(e) => setSelectedYear(parseInt(e.target.value))} value={selectedYear}>
-          <option value={2020}>2020</option>
-          <option value={2021}>2021</option>
-          <option value={2022}>2022</option>
-          <option value={2023}>2023</option>
-        </select>
+              {/* Line Chart for Monthly Sales Trends (January to December) */}
+              <Col md={6}>
+                <Card>
+                  <h4 className="text-center">MONTHLY SALES TRENDS (January to December)</h4>
+                  <div className="d-flex justify-content-center mb-3">
+                    {/* Dropdown to select year */}
+                    <select onChange={(e) => setSelectedYear(parseInt(e.target.value))} value={selectedYear} style={{backgroundColor: 'rgb(224, 47, 47)', color: 'white', border: 'none', borderRadius: '5px', height: '4vh', width: '20%', textAlign: 'center'}}>
+                      <option value={2020}>2020</option>
+                      <option value={2021}>2021</option>
+                      <option value={2022}>2022</option>
+                      <option value={2023}>2023</option>
+                    </select>
+                  </div>
+                  <ResponsiveContainer width="100%" height={360}>
+                    <LineChart data={filteredMonthlyData}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="month" label={{ value: "Month", position: "insideBottomRight", offset: 0 }} />
+                      <YAxis label={{ value: "Sales", angle: -90, position: "insideLeft" }} />
+                      <Tooltip />
+                      <Legend />
+                      <Line type="monotone" dataKey="productA" stroke="#8884d8" name="Product A" />
+                      <Line type="monotone" dataKey="productB" stroke="#82ca9d" name="Product B" />
+                      <Line type="monotone" dataKey="productC" stroke="#ffc658" name="Product C" />
+                      <Line type="monotone" dataKey="productD" stroke="#ff8042" name="Product D" />
+                    </LineChart>
+                  </ResponsiveContainer>
+                </Card>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+      </Container>
       </div>
-      <ResponsiveContainer width="100%" height={360}>
-        <LineChart data={filteredMonthlyData}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="month" label={{ value: "Month", position: "insideBottomRight", offset: 0 }} />
-          <YAxis label={{ value: "Sales", angle: -90, position: "insideLeft" }} />
-          <Tooltip />
-          <Legend />
-          <Line type="monotone" dataKey="productA" stroke="#8884d8" name="Product A" />
-          <Line type="monotone" dataKey="productB" stroke="#82ca9d" name="Product B" />
-          <Line type="monotone" dataKey="productC" stroke="#ffc658" name="Product C" />
-          <Line type="monotone" dataKey="productD" stroke="#ff8042" name="Product D" />
-        </LineChart>
-      </ResponsiveContainer>
-    </Card>
-  </Col>
-</Row>
-
-    </Container>
   );
 };
 

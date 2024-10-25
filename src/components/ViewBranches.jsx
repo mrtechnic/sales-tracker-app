@@ -1,4 +1,6 @@
 import React from 'react';
+import Navbar from './NavBar';
+import Sidebar from './SideBar';
 import './viewbranches.css'; 
 
 const ViewBranches = () => {
@@ -10,8 +12,13 @@ const ViewBranches = () => {
   ];
 
   return (
+    <div>
+      <Navbar />
+      <div className="app-body">
+        <Sidebar />
+        <div className="content">
     <div className="view-branches-container">
-      <div className='branches-list'><h2>Branches List</h2></div>
+      <div className='branches-list'><h2>BRANCHES</h2></div>
       {branches.length === 0 ? (
         <p>No branches available.</p>
       ) : (
@@ -34,6 +41,9 @@ const ViewBranches = () => {
           </tbody>
         </table>
       )}
+    </div>
+    </div>
+    </div>
     </div>
   );
 };

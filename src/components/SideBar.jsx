@@ -1,13 +1,20 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import './sidebar.css';
-
 
 const Sidebar = ({ onSelectCategory, selectedCategory }) => {
   const [openDropdown, setOpenDropdown] = useState(null);
 
-  // Function to toggle dropdowns
-  const toggleDropdown = (category) => {
-    setOpenDropdown(openDropdown === category ? null : category);
+  // Function to handle both category selection and dropdown toggle
+  const handleCategoryClick = (category) => {
+    if (openDropdown === category) {
+      // Close the dropdown if it's open
+      setOpenDropdown(null);
+      onSelectCategory(null);  // Deselect the category
+    } else {
+      // Open the dropdown and select the category
+      setOpenDropdown(category);
+      onSelectCategory(category);
+    }
   };
 
   return (
@@ -20,12 +27,39 @@ const Sidebar = ({ onSelectCategory, selectedCategory }) => {
       <div className="dash-items">
         <ul className="nav nav-pills flex-column mb-auto">
 
+            {/* Sales Records */}
+        <li className="nav-item mb-2">
+  <a
+    href="#"
+    className={`nav-link d-flex justify-content-between ${selectedCategory === "SalesRecords" ? "active bg-light text-dark" : "text-white"}`}
+    onClick={() => handleCategoryClick("SalesRecords")}
+  >
+    <div><i className="bi bi-clipboard-data me-2"></i> Sales Records</div>
+    <i className={`bi ${openDropdown === "SalesRecords" ? "bi-caret-up-fill" : "bi-caret-down-fill"}`}></i>
+  </a>
+  <div className={`dropdown-content ${openDropdown === "SalesRecords" ? "open" : ""}`}>
+    <ul className="nav flex-column ms-3">
+      <li className="nav-item">
+        <a href="/CreateSalesRecord" className={`nav-link ${selectedCategory === "CreateSalesRecord" ? "bg-light text-dark" : "text-white"}`} onClick={() => onSelectCategory("CreateSalesRecord")}>
+          <i className="bi bi-pencil-square me-2"></i> Create Sales Record
+        </a>
+      </li>
+      <li className="nav-item">
+        <a href="/ViewSalesRecords" className={`nav-link ${selectedCategory === "ViewSalesRecords" ? "bg-light text-dark" : "text-white"}`} onClick={() => onSelectCategory("ViewSalesRecords")}>
+          <i className="bi bi-eye-fill me-2"></i> View Sales Records
+        </a>
+      </li>
+    </ul>
+  </div>
+</li>
+
+
           {/* Products with dropdown */}
           <li className="nav-item mb-2">
             <a
-              href="#products"
+              href="#"
               className={`nav-link d-flex justify-content-between ${selectedCategory === "Products" ? "active bg-light text-dark" : "text-white"}`}
-              onClick={() => toggleDropdown("Products")}
+              onClick={() => handleCategoryClick("Products")}
             >
               <div><i className="bi bi-box-seam me-2"></i> Products</div>
               <i className={`bi ${openDropdown === "Products" ? "bi-caret-up-fill" : "bi-caret-down-fill"}`}></i>
@@ -33,12 +67,12 @@ const Sidebar = ({ onSelectCategory, selectedCategory }) => {
             <div className={`dropdown-content ${openDropdown === "Products" ? "open" : ""}`}>
               <ul className="nav flex-column ms-3">
                 <li className="nav-item">
-                  <a href="/CreateProduct" className="nav-link text-white" onClick={() => onSelectCategory("Createproduct")}>
+                  <a href="/CreateProduct" className={`nav-link ${selectedCategory === "Createproduct" ? "bg-light text-dark" : "text-white"}`} onClick={() => onSelectCategory("Createproduct")}>
                     <i className="bi bi-basket-fill me-2"></i> Create Product
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href="/ViewProducts" className="nav-link text-white" onClick={() => onSelectCategory("Viewproducts")}>
+                  <a href="/ViewProducts" className={`nav-link ${selectedCategory === "Viewproducts" ? "bg-light text-dark" : "text-white"}`} onClick={() => onSelectCategory("Viewproducts")}>
                     <i className="bi bi-bag-fill me-2"></i> View Products
                   </a>
                 </li>
@@ -49,9 +83,9 @@ const Sidebar = ({ onSelectCategory, selectedCategory }) => {
           {/* Branch with dropdown */}
           <li className="nav-item mb-2">
             <a
-              href="#branch"
+              href="#"
               className={`nav-link d-flex justify-content-between ${selectedCategory === "Branch" ? "active bg-light text-dark" : "text-white"}`}
-              onClick={() => toggleDropdown("Branch")}
+              onClick={() => handleCategoryClick("Branch")}
             >
               <div><i className="bi bi-building me-2"></i> Branch</div>
               <i className={`bi ${openDropdown === "Branch" ? "bi-caret-up-fill" : "bi-caret-down-fill"}`}></i>
@@ -59,12 +93,12 @@ const Sidebar = ({ onSelectCategory, selectedCategory }) => {
             <div className={`dropdown-content ${openDropdown === "Branch" ? "open" : ""}`}>
               <ul className="nav flex-column ms-3">
                 <li className="nav-item">
-                  <a href="/CreateBranch" className="nav-link text-white" onClick={() => onSelectCategory("Createbranch")}>
+                  <a href="/CreateBranch" className={`nav-link ${selectedCategory === "Createbranch" ? "bg-light text-dark" : "text-white"}`} onClick={() => onSelectCategory("Createbranch")}>
                     <i className="bi bi-building me-2"></i> Create Branch
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href="/ViewBranches" className="nav-link text-white" onClick={() => onSelectCategory("Viewbranches")}>
+                  <a href="/ViewBranches" className={`nav-link ${selectedCategory === "Viewbranches" ? "bg-light text-dark" : "text-white"}`} onClick={() => onSelectCategory("Viewbranches")}>
                     <i className="bi bi-shop me-2"></i> View Branches
                   </a>
                 </li>
@@ -75,22 +109,22 @@ const Sidebar = ({ onSelectCategory, selectedCategory }) => {
           {/* Inventory with dropdown */}
           <li className="nav-item mb-2">
             <a
-              href="#inventory"
+              href="#"
               className={`nav-link d-flex justify-content-between ${selectedCategory === "Inventory" ? "active bg-light text-dark" : "text-white"}`}
-              onClick={() => toggleDropdown("Inventory")}
+              onClick={() => handleCategoryClick("Inventory")}
             >
               <div><i className="bi bi-clipboard me-2"></i> Inventory</div>
               <i className={`bi ${openDropdown === "Inventory" ? "bi-caret-up-fill" : "bi-caret-down-fill"}`}></i>
             </a>
             <div className={`dropdown-content ${openDropdown === "Inventory" ? "open" : ""}`}>
               <ul className="nav flex-column ms-3">
-              <li className="nav-item">
-                  <a href="/CreateInventory" className="nav-link text-white" onClick={() => onSelectCategory("Createinventory")}>
+                <li className="nav-item">
+                  <a href="/CreateInventory" className={`nav-link ${selectedCategory === "Createinventory" ? "bg-light text-dark" : "text-white"}`} onClick={() => onSelectCategory("Createinventory")}>
                     <i className="bi bi-archive-fill me-2"></i> Create Inventory
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href="/ViewInventory" className="nav-link text-white" onClick={() => onSelectCategory("Viewinventory")}>
+                  <a href="/ViewInventory" className={`nav-link ${selectedCategory === "Viewinventory" ? "bg-light text-dark" : "text-white"}`} onClick={() => onSelectCategory("Viewinventory")}>
                     <i className="bi bi-boxes me-2"></i> View Inventory
                   </a>
                 </li>
@@ -101,9 +135,9 @@ const Sidebar = ({ onSelectCategory, selectedCategory }) => {
           {/* Staffs with dropdown */}
           <li className="nav-item mb-2">
             <a
-              href="#staffs"
+              href="#"
               className={`nav-link d-flex justify-content-between ${selectedCategory === "Staffs" ? "active bg-light text-dark" : "text-white"}`}
-              onClick={() => toggleDropdown("Staffs")}
+              onClick={() => handleCategoryClick("Staffs")}
             >
               <div><i className="bi bi-person-square me-2"></i> Staffs</div>
               <i className={`bi ${openDropdown === "Staffs" ? "bi-caret-up-fill" : "bi-caret-down-fill"}`}></i>
@@ -111,12 +145,12 @@ const Sidebar = ({ onSelectCategory, selectedCategory }) => {
             <div className={`dropdown-content ${openDropdown === "Staffs" ? "open" : ""}`}>
               <ul className="nav flex-column ms-3">
                 <li className="nav-item">
-                  <a href="/CreateStaff" className="nav-link text-white" onClick={() => onSelectCategory("Createstaff")}>
+                  <a href="/CreateStaff" className={`nav-link ${selectedCategory === "Createstaff" ? "bg-light text-dark" : "text-white"}`} onClick={() => onSelectCategory("Createstaff")}>
                     <i className="bi bi-pie-chart-fill me-2"></i> Create Staff
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href="/ViewStaffs" className="nav-link text-white" onClick={() => onSelectCategory("Viewstaffs")}>
+                  <a href="/ViewStaffs" className={`nav-link ${selectedCategory === "Viewstaffs" ? "bg-light text-dark" : "text-white"}`} onClick={() => onSelectCategory("Viewstaffs")}>
                     <i className="bi bi-bar-chart-line-fill me-2"></i> View Staffs
                   </a>
                 </li>
@@ -129,7 +163,7 @@ const Sidebar = ({ onSelectCategory, selectedCategory }) => {
             <a
               href="/Analytics"
               className={`nav-link d-flex justify-content-between ${selectedCategory === "Analytics" ? "active bg-light text-dark" : "text-white"}`}
-              onClick={() => toggleDropdown("Analytics")}
+              onClick={() => handleCategoryClick("Analytics")}
             >
               <div><i className="bi bi-graph-up-arrow me-2"></i> Analytics</div>
             </a>

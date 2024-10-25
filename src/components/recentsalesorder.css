@@ -1,0 +1,56 @@
+/* recentsalesorder.css */
+
+.recent-sales-card {
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .recent-sales-card .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .table thead {
+    background-color: #f8f9fa;
+  }
+  
+  .table th {
+    text-align: left;
+    font-weight: bold;
+    padding: 10px;
+    color: #555;
+  }
+  
+  .table td {
+    padding: 10px;
+    color: #333;
+  }
+  
+  .table-hover tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .table td.status-web {
+    color: blue;
+  }
+  
+  .table td.status-instagram {
+    color: #E4405F;
+  }
+  
+  .table td.status-facebook {
+    color: #1877F2;
+  }
+  
+  .table td.status-store {
+    color: green;
+  }
+  
+  .table td.amount {
+    font-weight: bold;
+  }
+  
+  

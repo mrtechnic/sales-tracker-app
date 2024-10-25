@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Navbar from './NavBar';
+import Sidebar from './SideBar';
 import './CreateInventory.css'; // Add a CSS file for styling
 
 const CreateInventory = () => {
@@ -12,6 +14,11 @@ const CreateInventory = () => {
   };
 
   return (
+    <div>
+      <Navbar />
+      <div className="app-body">
+        <Sidebar />
+        <div className="content">
     <div className="create-inventory-container">
       <form onSubmit={handleSubmit} className="form-container">
         <div className="form-group">
@@ -44,6 +51,9 @@ const CreateInventory = () => {
         </div>
         <button type="submit" className="btn btn-primary">Create Inventory Item</button>
       </form>
+    </div>
+    </div>
+    </div>
     </div>
   );
 };

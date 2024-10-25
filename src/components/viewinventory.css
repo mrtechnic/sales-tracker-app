@@ -1,23 +1,99 @@
 .view-inventory-container {
-    margin: 20px;
-  }
+  margin: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
   
-  .table {
-    width: 100%;
-    border-collapse: collapse;
-  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
   
-  .table th,
-  .table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  .table th {
-    background-color: #f2f2f2;
-  }
-  
-  .inventory-list {
-    padding: 10px;
-  }
-  
+}
+
+.table th {
+  background-color: white;
+}
+
+.inventory-list {
+  padding: 10px;
+}
+
+#branch {
+  background-color: rgb(224, 47, 47);
+  color: white;
+  height: 30px;
+  width: 20%;
+  border: none; /* Remove the border */
+  border-radius: 5px;
+  margin: 30px;
+  padding: 5px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  outline: none; /* Remove outline on focus */
+}
+
+/* When hovering over the select box */
+#branch:hover {
+  cursor: pointer;
+}
+
+/* Style for the options inside the dropdown */
+#branch option {
+  background-color: white !important;
+  color: rgb(224, 47, 47) !important;
+  border: none; /* Remove any border for options */
+}
+
+/* Ensure no background color for selected/focused options */
+#branch option:checked, 
+#branch option:hover {
+  background-color: white !important;
+  color: rgb(224, 47, 47) !important;
+  outline: none !important; /* Remove outline on hover */
+  border: none; /* Remove border for focused options */
+}
+
+/* Additional styling for better appearance */
+#branch::-ms-expand {
+  display: none; /* Hide default dropdown arrow in IE */
+}
+
+
+.edit-btn,
+.del-btn {
+  background-color: rgb(224, 47, 47);
+  color: white;
+  width: 20%;
+  border: none;
+  margin: 10px;
+  padding: 10px 0; /* Adjust padding for better centering */
+  border-radius: 5px;
+  height: 4vh;
+  display: flex; /* Enable flexbox for centering */
+  align-items: center; /* Vertically center text */
+  justify-content: center; /* Horizontally center text */
+  text-align: center; /* Center text inside button */
+  cursor: pointer; /* Change cursor on hover */
+}
+
+.edit-btn:hover,
+.del-btn:hover {
+  background-color: white;
+  color: rgb(224, 47, 47);
+}
+
+.action-btn{
+  display: flex;
+  justify-content: center;
+}

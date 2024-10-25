@@ -1,0 +1,36 @@
+/* Overall container for the dashboard */
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 20px;
+  }
+  
+  /* Top section for charts */
+  .charts-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px; /* Space between the charts */
+    margin-bottom: 30px; /* Space between charts and recent sales */
+    width: 135%;
+  }
+  
+  /* Card styles for charts */
+  .chart-bar {
+    flex: 1;
+    height: 40vh; /* Adjust chart height */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  /* Ensure recent sales section sits below the charts */
+  .recent-sales-container {
+    flex: 1;
+    margin-top: 20px;
+    width: 135%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  

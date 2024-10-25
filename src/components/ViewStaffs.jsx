@@ -1,5 +1,7 @@
 import React from 'react';
 import './viewstaffs.css'; 
+import Navbar from './NavBar';
+import Sidebar from './SideBar';
 
 const ViewStaffs = () => {
   // Sample static data for staff members
@@ -34,8 +36,13 @@ const ViewStaffs = () => {
   ];
 
   return (
+    <div>
+      <Navbar />
+      <div className="app-body">
+        <Sidebar />
+        <div className="content">
     <div className="view-staffs-container">
-      <div className="staffs-list"><h2>Staffs List</h2></div>
+      <div className="staffs-list"><h2>STAFFS</h2></div>
       {staffs.length === 0 ? (
         <p>No staffs available.</p>
       ) : (
@@ -64,6 +71,9 @@ const ViewStaffs = () => {
           </tbody>
         </table>
       )}
+    </div>
+    </div>
+    </div>
     </div>
   );
 };

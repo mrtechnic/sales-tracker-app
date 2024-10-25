@@ -4,12 +4,12 @@ import Sidebar from '../components/SideBar';
 import Navbar from '../components/NavBar';
 import BarChart from '../components/BarChart'; 
 import DoughnutChart from '../components/DoughnutChart'; 
-import RecentSalesOrder from '../components/RecentSalesOrder'; 
+import RecentSalesOrder from '../components/RecentSalesOrder';
+import './superadmindash.css'; // Import the CSS file
 
 const SuperAdminDash = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
-  
-  
+
   const productsPerBranch = {
     branches: ["Branch A", "Branch B", "Branch C", "Branch D", "Branch E"],
     products: [
@@ -21,7 +21,6 @@ const SuperAdminDash = () => {
     ],
   };
 
-  
   const clusteredBarData = {
     labels: productsPerBranch.branches, 
     datasets: productsPerBranch.products.map((product, index) => ({
@@ -33,7 +32,6 @@ const SuperAdminDash = () => {
     })),
   };
 
-  // Bar chart options
   const barOptions = {
     responsive: true,
     maintainAspectRatio: false,
@@ -69,54 +67,34 @@ const SuperAdminDash = () => {
   return (
     <div>
       <Navbar />
-      <Container fluid className="vh-100">
-        <Row className="h-100">
-          <Col md={2} className="p-0 bg-light sidebar">
-            <Sidebar onSelectCategory={handleSelectCategory} />
-          </Col>
-          <Col md={9}>
-            <Row className="mt-4">
-              <Col>
-                <Row>
-                  <Col md={6} className="mb-4">
-                    <Card style={{ height: '300px' }}>
-                      <Card.Body>
-                        <Card.Title style={{color: '#e02f2f'}}><strong>Sales per Branch</strong></Card.Title>
-                        <BarChart data={clusteredBarData} options={barOptions} />
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                  
-                  <Col md={6} className="mb-4">
-                    <Card style={{ height: '300px' }}>
-                      <Card.Body>
-                        <Card.Title style={{color: '#e02f2f'}}><strong>Best Selling Products</strong></Card.Title>
-                        <DoughnutChart data={doughnutData} options={doughnutOptions} />
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                </Row>
+      <div className="app-body">
+        <Sidebar />
+        <div className="dashboard-container">
+          <Container>
+            {/* Charts section */}
+            <div className="charts-container">
+              <Card className="chart-bar">
+                <Card.Body>
+                  <Card.Title><strong>Sales per Branch</strong></Card.Title>
+                  <BarChart data={clusteredBarData} options={barOptions} />
+                </Card.Body>
+              </Card>
 
-                {selectedCategory === "Products" && (
-                  <Card className="mt-4">
-                    <Card.Body>
-                      <Card.Title>Products</Card.Title>
-                      <ul>
-                        {productsPerBranch.products.map((product, index) => (
-                          <li key={index}>{product.name}</li>
-                        ))}
-                      </ul>
-                    </Card.Body>
-                  </Card>
-                )}
-              </Col>
-            </Row>
+              <Card className="chart-bar">
+                <Card.Body>
+                  <Card.Title><strong>Best Selling Products</strong></Card.Title>
+                  <DoughnutChart data={doughnutData} options={doughnutOptions} />
+                </Card.Body>
+              </Card>
+            </div>
 
-
-            <RecentSalesOrder />
-          </Col>
-        </Row>
-      </Container>
+            {/* Recent sales section */}
+            <div className="recent-sales-container">
+              <RecentSalesOrder />
+            </div>
+          </Container>
+        </div>
+      </div>
     </div>
   );
 };

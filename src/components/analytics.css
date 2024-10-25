@@ -1,58 +1,62 @@
-/* Container for the whole analytics section */
-.container-fluid {
-    padding: 20px;
-    background-color: #f9f9f9; /* Light background to differentiate the section */
-  }
-  
-  /* General card styling for each chart */
-  .card {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    padding: 20px;
-    margin-bottom: 20px;
-    
-  }
-  
-  /* Heading inside each card */
-  .card h4 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #333; /* Dark color for better readability */
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  /* Ensure the charts are responsive inside the card */
-  .responsive-container {
-    width: 100%;
-    height: 100%;
-  }
-  
-  /* Row spacing for charts */
-  .row {
-    margin-bottom: 30px;
-  }
-  
-  /* Styling for the bar, line, and pie charts */
-  .recharts-wrapper {
-    margin: 0 auto; /* Ensure the charts stay centered in their containers */
-  }
-  
-  /* For medium and large screens, make the charts take up more horizontal space */
-  @media (min-width: 768px) {
-    .col-md-6 {
+body {
+  margin: 0
+}
+
+.dashboard-container{
+  background-color: white;
+  min-height: 100vh;
+}
+
+.sidebar{
+  background-color: #f8f9fa;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 56px;
+}
+
+.dashboard-content{
+  margin-left: 200px;
+  padding: 20px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 20px;
+  margin: 15px 0; /* Add margin to create space above and below each chart */
+}
+
+/* Add space between the charts in each row */
+.col-md-6 {
+  padding: 0 15px; /* Adjust padding to create space between charts */
+}
+
+/* Ensure the charts are responsive inside the card */
+.responsive-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* Styling for the bar, line, and pie charts */
+.recharts-wrapper {
+  margin: 0 auto; /* Ensure the charts stay centered in their containers */
+}
+
+/* For medium and large screens, make the charts take up more horizontal space */
+@media (min-width: 768px) {
+  .col-md-6 {
       flex: 0 0 50%;
       max-width: 50%;
-    }
   }
-  
-  /* On smaller screens, make sure the cards are full width */
-  @media (max-width: 767px) {
-    .col-md-6,
-    .col-md-12 {
+}
+
+/* On smaller screens, make sure the cards are full width */
+@media (max-width: 767px) {
+  .col-md-6,
+  .col-md-12 {
       flex: 0 0 100%;
       max-width: 100%;
-    }
   }
-  
+}

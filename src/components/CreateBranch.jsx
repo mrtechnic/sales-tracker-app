@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import './CreateBranch.css'; // Add a CSS file for styling
+import Navbar from './NavBar';
+import Sidebar from './SideBar';
+import './CreateBranch.css'; // Ensure CSS is imported
 
 const CreateBranch = () => {
   const [branchName, setBranchName] = useState('');
@@ -12,38 +14,46 @@ const CreateBranch = () => {
   };
 
   return (
-    <div className="create-branch-container">
-      <form onSubmit={handleSubmit} className="form-container">
-        <div className="form-group">
-          <div className="branch-name"><strong><h2>CREATE BRANCH</h2></strong></div>
-          <label>Branch Name:</label>
-          <input
-            type="text"
-            value={branchName}
-            onChange={(e) => setBranchName(e.target.value)}
-            className="form-control"
-          />
+    <div>
+      <Navbar />
+      <div className="app-body"> {/* Sidebar and form container */}
+        <Sidebar /> {/* Sidebar on the left */}
+        <div className="content"> {/* Form content on the right */}
+          <div className="create-branch-container">
+            <form onSubmit={handleSubmit} className="form-container">
+              <div className="form-group">
+                <div className="branch-name"><h2>CREATE BRANCH</h2></div>
+                <label>Branch Name:</label>
+                <input
+                  type="text"
+                  value={branchName}
+                  onChange={(e) => setBranchName(e.target.value)}
+                  className="form-control"
+                />
+              </div>
+              <div className="form-group">
+                <label>Location:</label>
+                <input
+                  type="text"
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
+                  className="form-control"
+                />
+              </div>
+              <div className="form-group">
+                <label>Manager:</label>
+                <input
+                  type="text"
+                  value={manager}
+                  onChange={(e) => setManager(e.target.value)}
+                  className="form-control"
+                />
+              </div>
+              <button type="submit" className="btn btn-primary">Create Branch</button>
+            </form>
+          </div>
         </div>
-        <div className="form-group">
-          <label>Location:</label>
-          <input
-            type="text"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-            className="form-control"
-          />
-        </div>
-        <div className="form-group">
-          <label>Manager:</label>
-          <input
-            type="text"
-            value={manager}
-            onChange={(e) => setManager(e.target.value)}
-            className="form-control"
-          />
-        </div>
-        <button type="submit" className="btn btn-primary">Create Branch</button>
-      </form>
+      </div>
     </div>
   );
 };

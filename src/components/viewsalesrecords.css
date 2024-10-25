@@ -1,0 +1,77 @@
+/* salesrecords.css */
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-body {
+  display: flex;
+  margin-top: 0;
+}
+
+.navbar {
+  width: 100%;
+  background-color: #343a40;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #212529;
+  height: 100%;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sales-records-card {
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;
+}
+
+  
+  .sales-records-card .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .form-label {
+    font-weight: bold;
+  }
+  
+  .table thead {
+    background-color: #f8f9fa;
+  }
+  
+  .table th, .table td {
+    padding: 10px;
+    color: #333;
+  }
+  
+  .refund-row {
+    background-color: #fff5f5;
+  }
+  
+  .type-sale {
+    color: green;
+  }
+  
+  .type-refund {
+    color: red;
+  }
+  
+  .total-sales {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    color: #333;
+  }
+
+  

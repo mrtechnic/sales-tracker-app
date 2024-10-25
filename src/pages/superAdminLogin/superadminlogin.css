@@ -19,6 +19,7 @@
 .staff-btn-login:hover{
     color: white;
     font-size:larger;
+    text-decoration: none;
 }
 
 /* #login-btns{

@@ -33,4 +33,5 @@
   
   .super-log a:hover {
     font-size: 20px; 
+    text-decoration: none;
   }

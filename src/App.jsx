@@ -2,6 +2,7 @@ import LogIn from './pages/LogIn/LogIn';
 import AdminLogin from './pages/adminLogin/adminLogin';
 import SuperAdminLogin from './pages/superAdminLogin/SuperAdminLogin';
 import SuperAdminDash from './Dashboards/superAdminDash';
+import ViewSalesRecords from './components/ViewSalesRecords';
 import CreateProduct from './components/CreateProduct';
 import ViewProducts from './components/ViewProducts';
 import CreateBranch from './components/CreateBranch';
@@ -38,6 +39,8 @@ function App() {
           <Route path="/CreateStaff" element={<CreateStaff />} />
           <Route path="/ViewStaffs" element={<ViewStaffs />} />
           <Route path="/Analytics" element={<Analytics />} />
+          <Route path="/ViewSalesRecords" element={<ViewSalesRecords />} />
+
         </Routes>
       </Router>
       

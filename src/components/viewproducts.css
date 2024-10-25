@@ -1,5 +1,9 @@
 .view-products-container {
     margin: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
   }
   
   .table {
@@ -9,7 +13,7 @@
   
   .table th,
   .table td {
-    border: 1px solid #ddd;
+    background-color: white;
     padding: 8px;
   }
   
@@ -19,4 +23,9 @@
 
   .products-list{
     padding: 10px;
+  }
+
+  
+  .table td:hover{
+    background-color: #f2f2f2;
   }
