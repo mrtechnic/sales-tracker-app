@@ -16,8 +16,7 @@ const SuperAdminDash = () => {
       { name: "Product A", sales: [5000, 10000, 7000, 8000, 6000] }, 
       { name: "Product B", sales: [4000, 9000, 6000, 7000, 5000] },  
       { name: "Product C", sales: [3000, 8000, 5000, 6000, 4000] },
-      { name: "Product D", sales: [3000, 8000, 5000, 6000, 4000] },
-      { name: "Product E", sales: [3000, 8000, 5000, 6000, 4000] }
+      { name: "Product D", sales: [3000, 8000, 5000, 6000, 4000] }
     ],
   };
 
@@ -26,7 +25,7 @@ const SuperAdminDash = () => {
     datasets: productsPerBranch.products.map((product, index) => ({
       label: product.name,
       data: product.sales,
-      backgroundColor: ['#140CA8', '#C912B7', '#EDf514', '#EB3437', '#088724'][index],
+      backgroundColor: ['#022c22', '#4ade80', '#16a34a', '#14532d'][index],
       borderColor: '#1E88E5',
       borderWidth: 0,
     })),
@@ -44,10 +43,10 @@ const SuperAdminDash = () => {
   };
 
   const doughnutData = {
-    labels: ["Product A", "Product B", "Product C", "Product D", "Product E"],
+    labels: ["Product A", "Product B", "Product C", "Product D"],
     datasets: [{
-      data: [30000, 25000, 18000, 40000, 18000],
-      backgroundColor: ['#140CA8', '#C912B7', '#EDf514', '#EB3437', '#088724'],
+      data: [30000, 25000, 40000, 18000],
+      backgroundColor: ['#022c22', '#4ade80', '#16a34a', '#14532d'],
     }],
   };
 

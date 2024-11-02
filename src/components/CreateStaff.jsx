@@ -79,7 +79,7 @@ const CreateStaff = () => {
             className="form-control"
           />
         </div>
-        <button type="submit" className="btn btn-primary">Create Staff</button>
+        <button type="submit" className="btn-staff">Create Staff</button>
       </form>
     </div>
     </div>

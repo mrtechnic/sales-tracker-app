@@ -48,7 +48,7 @@ const CreateProduct = () => {
             className="form-control"
           />
         </div>
-        <button type="submit" className="btn btn-primary">Create Product</button>
+        <button type="submit" className="btn-product">Create Product</button>
       </form>
     </div>
     </div>

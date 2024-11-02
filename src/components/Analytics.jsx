@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './NavBar';
 import Sidebar from './SideBar';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, LineChart, Line, PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
-import { Card, Container, Row, Col } from 'react-bootstrap';
+import {
+  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+  LineChart, Line, PieChart, Pie, Cell, ResponsiveContainer,
+} from 'recharts';
+import { Card, Container } from 'react-bootstrap';
 
 // Mock sales data (replace this with your actual data source)
 const salesData = [
-    { name: 'Product A', sales: 8000, branch1: 3000, branch2: 2000, branch3: 1500, branch4: 1500 },
-    { name: 'Product B', sales: 7000, branch1: 2000, branch2: 2500, branch3: 1000, branch4: 1500 },
-    { name: 'Product C', sales: 8000, branch1: 2500, branch2: 3000, branch3: 800, branch4: 1700 },
-    { name: 'Product D', sales: 9000, branch1: 4000, branch2: 3000, branch3: 1000, branch4: 1000 },
+  { name: 'Product A', sales: 8000, branch1: 3000, branch2: 2000, branch3: 1500, branch4: 1500 },
+  { name: 'Product B', sales: 7000, branch1: 2000, branch2: 2500, branch3: 1000, branch4: 1500 },
+  { name: 'Product C', sales: 8000, branch1: 2500, branch2: 3000, branch3: 800, branch4: 1700 },
+  { name: 'Product D', sales: 9000, branch1: 4000, branch2: 3000, branch3: 1000, branch4: 1000 },
 ];
 
 // Yearly sales trend data
@@ -36,7 +39,7 @@ const pieData = [
   { name: 'Product D', value: 9000 },
 ];
 
-const COLORS = ['#140CA8', '#C912B7', '#EDf514', '#EB3437', '#088724'];
+const COLORS = ['#022c22', '#4ade80', '#16a34a', '#14532d', '#22c55e'];
 
 const Analytics = () => {
   const [data, setData] = useState([]);
@@ -52,19 +55,17 @@ const Analytics = () => {
   const handleSelectCategory = (category) => setSelectedCategory(category);
 
   return (
-    <div className="dashboard-container">
+    <div>
       <Navbar />
-      <Container fluid className="app-body">
-        <Row className="mt-4">
-          <Col md={2} className="sidebar">
-            <Sidebar onSelectCategory={handleSelectCategory} />
-          </Col>
-          <Col md={10} className="dashboard-content">
-            <Row>
-              {/* Bar Chart for Sales by Product */}
-              <Col md={6}>
-                <Card>
-                  <h4 className="text-center">Sales by Product</h4>
+      <div className="app-body">
+        <Sidebar />
+        <div className="dashboard-container">
+          <Container>
+            {/* Top row for charts */}
+            <div className="charts-container">
+              <Card className="chart-bar">
+                <Card.Body>
+                  <Card.Title><strong>Sales by Product</strong></Card.Title>
                   <ResponsiveContainer width="100%" height={300}>
                     <BarChart data={data}>
                       <CartesianGrid strokeDasharray="3 3" />
@@ -72,20 +73,19 @@ const Analytics = () => {
                       <YAxis />
                       <Tooltip />
                       <Legend />
-                      <Bar dataKey="sales" fill="#088724" />
-                      <Bar dataKey="branch1" fill="#140CA8" />
-                      <Bar dataKey="branch2" fill="#C912B7" />
-                      <Bar dataKey="branch3" fill="#EDf514" />
-                      <Bar dataKey="branch4" fill="#EB3437" />
+                      <Bar dataKey="sales" fill="#022c22" />
+                      <Bar dataKey="branch1" fill="#4ade80" />
+                      <Bar dataKey="branch2" fill="#16a34a" />
+                      <Bar dataKey="branch3" fill="#14532d" />
+                      <Bar dataKey="branch4" fill="#22c55e" />
                     </BarChart>
                   </ResponsiveContainer>
-                </Card>
-              </Col>
+                </Card.Body>
+              </Card>
 
-              {/* Pie Chart for Best-Selling Products */}
-              <Col md={6}>
-                <Card>
-                  <h4 className="text-center">Best-Selling Products</h4>
+              <Card className="chart-bar">
+                <Card.Body>
+                  <Card.Title><strong>Best-Selling Products</strong></Card.Title>
                   <ResponsiveContainer width="100%" height={300}>
                     <PieChart>
                       <Pie
@@ -93,76 +93,75 @@ const Analytics = () => {
                         cx="50%"
                         cy="50%"
                         labelLine={false}
-                        label={({ name, value }) => `${name}: ${value}`}
+                        label={({ name, value }) => `${name}: ${value}`} // Fixed interpolation
                         outerRadius={120}
                         fill="#8884d8"
                         dataKey="value"
                       >
                         {pieData.map((entry, index) => (
-                          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} /> // Corrected key
                         ))}
                       </Pie>
                       <Tooltip />
                     </PieChart>
                   </ResponsiveContainer>
-                </Card>
-              </Col>
-            </Row>
+                </Card.Body>
+              </Card>
+            </div>
 
-            <Row className="mt-4">
-              {/* Line Chart for Yearly Sales Trends */}
-              <Col md={6}>
-                <Card>
-                  <h4 className="text-center">Sales Trends Over Time</h4>
-                  <ResponsiveContainer width="100%" height={400}>
-                    <LineChart data={salesTrendData}>
-                      <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis dataKey="year" label={{ value: "Year", position: "insideBottomRight", offset: 0 }} />
-                      <YAxis label={{ value: "Sales", angle: -90, position: "insideLeft" }} />
-                      <Tooltip />
-                      <Legend />
-                      <Line type="monotone" dataKey="productA" stroke="#140CA8" name="Product A" />
-                      <Line type="monotone" dataKey="productB" stroke="#C912B7" name="Product B" />
-                      <Line type="monotone" dataKey="productC" stroke="#EDf514" name="Product C" />
-                      <Line type="monotone" dataKey="productD" stroke="#EB3437" name="Product D" />
-                    </LineChart>
-                  </ResponsiveContainer>
-                </Card>
-              </Col>
-
-              {/* Line Chart for Monthly Sales Trends (January to December) */}
-              <Col md={6}>
-                <Card>
-                  <h4 className="text-center">MONTHLY SALES TRENDS (January to December)</h4>
+            {/* Bottom row for monthly sales trend */}
+            <div className="charts-container">
+              <Card className="chart-bar">
+                <Card.Body>
+                  <Card.Title><strong>Monthly Sales Trends (January to December)</strong></Card.Title>
                   <div className="d-flex justify-content-center mb-3">
                     {/* Dropdown to select year */}
-                    <select onChange={(e) => setSelectedYear(parseInt(e.target.value))} value={selectedYear} style={{backgroundColor: 'rgb(224, 47, 47)', color: 'white', border: 'none', borderRadius: '5px', height: '4vh', width: '20%', textAlign: 'center'}}>
+                    <select onChange={(e) => setSelectedYear(parseInt(e.target.value))} value={selectedYear}>
                       <option value={2020}>2020</option>
                       <option value={2021}>2021</option>
                       <option value={2022}>2022</option>
                       <option value={2023}>2023</option>
                     </select>
                   </div>
-                  <ResponsiveContainer width="100%" height={360}>
+                  <ResponsiveContainer width="100%" height={300} style={{padding: '0 10px 20px', paddingBottom: '20px', marginLeft: '-30px'}}>
                     <LineChart data={filteredMonthlyData}>
                       <CartesianGrid strokeDasharray="3 3" />
                       <XAxis dataKey="month" label={{ value: "Month", position: "insideBottomRight", offset: 0 }} />
                       <YAxis label={{ value: "Sales", angle: -90, position: "insideLeft" }} />
                       <Tooltip />
                       <Legend />
-                      <Line type="monotone" dataKey="productA" stroke="#8884d8" name="Product A" />
-                      <Line type="monotone" dataKey="productB" stroke="#82ca9d" name="Product B" />
-                      <Line type="monotone" dataKey="productC" stroke="#ffc658" name="Product C" />
-                      <Line type="monotone" dataKey="productD" stroke="#ff8042" name="Product D" />
+                      <Line type="monotone" dataKey="productA" stroke="#4ade80" name="Product A" />
+                      <Line type="monotone" dataKey="productB" stroke="#16a34a" name="Product B" />
+                      <Line type="monotone" dataKey="productC" stroke="#14532d" name="Product C" />
+                      <Line type="monotone" dataKey="productD" stroke="#22c55e" name="Product D" />
                     </LineChart>
                   </ResponsiveContainer>
-                </Card>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-      </Container>
+                </Card.Body>
+              </Card>
+
+              <Card className="chart-bar">
+                <Card.Body>
+                  <Card.Title><strong>Yearly Sales Trends</strong></Card.Title>
+                  <ResponsiveContainer width="100%" height={300} style={{padding: '0 10px 20px', marginTop: '50px', marginLeft: '-40px' }}>
+                    <LineChart data={salesTrendData}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="year" />
+                      <YAxis />
+                      <Tooltip />
+                      <Legend />
+                      <Line type="monotone" dataKey="productA" stroke="#4ade80" name="Product A" />
+                      <Line type="monotone" dataKey="productB" stroke="#16a34a" name="Product B" />
+                      <Line type="monotone" dataKey="productC" stroke="#14532d" name="Product C" />
+                      <Line type="monotone" dataKey="productD" stroke="#22c55e" name="Product D" />
+                    </LineChart>
+                  </ResponsiveContainer>
+                </Card.Body>
+              </Card>
+            </div>
+          </Container>
+        </div>
       </div>
+    </div>
   );
 };
 

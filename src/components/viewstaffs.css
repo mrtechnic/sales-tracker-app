@@ -1,5 +1,6 @@
 .view-staffs-container {
-    margin: 20px;    background-color: white;
+    margin: 20px;   
+    background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     padding: 20px;
@@ -8,6 +9,7 @@
   .table {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 20px;
   }
   
   .table th,
@@ -19,8 +21,34 @@
   .table th {
     background-color: #f2f2f2;
   }
+
+  .table td button {
+    margin-right: 5px; /* Space between buttons */
+    padding: 5px 10px;
+    background-color: #052e16; /* Green background */
+    color: white; /* White text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .table td button:hover {
+    background-color: #052e16; /* Darker green on hover */
+  }
   
   .staffs-list {
     padding: 10px;
+  }
+
+  .icon-button {
+    margin-right: 15px;
+    font-size: 1.2em;
+    color: #052e16;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .icon-button:hover {
+    color: #052e16;
   }
   

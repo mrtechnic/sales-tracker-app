@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import Navbar from './NavBar';
 import Sidebar from './SideBar';
-import './CreateInventory.css'; // Add a CSS file for styling
+import './createinventory.css'; 
 
 const CreateInventory = () => {
   const [productName, setProductName] = useState('');
   const [quantity, setQuantity] = useState('');
-  const [location, setLocation] = useState('');
+  const [branch, setBranch] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Inventory Item Created:", { productName, quantity, location });
+    console.log("Inventory Item Created:", { productName, quantity, branch });
   };
 
   return (
@@ -22,7 +22,7 @@ const CreateInventory = () => {
     <div className="create-inventory-container">
       <form onSubmit={handleSubmit} className="form-container">
         <div className="form-group">
-          <div className="inventory-title"><strong><h2>CREATE INVENTORY ITEM</h2></strong></div>
+          <div className="inventory-title"><h2><strong>CREATE INVENTORY</strong></h2></div>
           <label>Product Name:</label>
           <input
             type="text"
@@ -41,15 +41,15 @@ const CreateInventory = () => {
           />
         </div>
         <div className="form-group">
-          <label>Location:</label>
+          <label>Branch:</label>
           <input
             type="text"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
+            value={branch}
+            onChange={(e) => setBranch(e.target.value)}
             className="form-control"
           />
         </div>
-        <button type="submit" className="btn btn-primary">Create Inventory Item</button>
+        <button type="submit" className="btn-inventory">Create Inventory Item</button>
       </form>
     </div>
     </div>

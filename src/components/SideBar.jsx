@@ -18,10 +18,10 @@ const Sidebar = ({ onSelectCategory, selectedCategory }) => {
   };
 
   return (
-    <div className="d-flex flex-column flex-shrink-0 p-3" style={{ width: '250px', height: '100vh', backgroundColor: '#e02f2f' }}>
+    <div className="d-flex flex-column flex-shrink-0 p-3" style={{ width: '250px', height: '70rem', backgroundColor: '#052e16' }}>
       <div className="dash">
         <a href="/superAdminDash" className="text-decoration-none mb-4">
-          <h4 className="fs-4 text-white" style={{ padding: '0 15px', margin: '10px' }}><strong>DASHBOARD</strong></h4>
+          <h4 className="fs-4 text-white" style={{ padding: '0 15px', margin: '10px' }}><strong> DASHBOARD </strong></h4>
         </a>
       </div>
       <div className="dash-items">

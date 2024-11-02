@@ -5,34 +5,63 @@ import './recentsalesorder.css';
 const RecentSalesOrder = () => {
   const salesOrders = [
     {
-      date: "21/07/2022 08:21",
-      items: "1x Black Backpack",
-      staff: "Eren Yeager",
-      amount: "$101",
+      date: "22/07/2022 09:30",
+      items: "3x Travel Backpack",
+      staff: "Jean Kirstein",
+      amount: "$300",
       status: "Instagram",
     },
     {
-      date: "21/07/2022 08:21",
-      items: "1x Distro Backpack",
-      staff: "Levi Ackerman",
-      amount: "$100",
+      date: "22/07/2022 10:15",
+      items: "2x Leather Wallet",
+      staff: "Mikasa Ackerman",
+      amount: "$90",
       status: "Web",
     },
     {
-      date: "21/07/2022 08:21",
-      items: "1x New Backpack",
-      staff: "Rainer Brown",
-      amount: "$150",
+      date: "22/07/2022 11:45",
+      items: "1x Hiking Boots",
+      staff: "Connie Springer",
+      amount: "$120",
+      status: "Store",
+    },
+    {
+      date: "22/07/2022 12:30",
+      items: "2x Messenger Bag",
+      staff: "Armin Arlert",
+      amount: "$180",
       status: "Facebook",
     },
     {
-      date: "21/07/2022 08:21",
-      items: "2x Black Backpack",
-      staff: "Historia Reiss",
-      amount: "$200",
-      status: "Store",
+      date: "22/07/2022 13:50",
+      items: "4x Canvas Tote",
+      staff: "Sasha Blouse",
+      amount: "$80",
+      status: "Web",
+    },
+    {
+      date: "22/07/2022 14:25",
+      items: "2x Duffel Bag",
+      staff: "Annie Leonhart",
+      amount: "$140",
+      status: "Instagram",
+    },
+    {
+      date: "22/07/2022 15:40",
+      items: "5x Eco-Friendly Bag",
+      staff: "Erwin Smith",
+      amount: "$60",
+      status: "Facebook",
+    },
+    {
+      date: "22/07/2022 16:10",
+      items: "2x Laptop Sleeve",
+      staff: "Floch Forster",
+      amount: "$50",
+      status: "Web",
     },
   ];
+  
 
   return (
     <Card className="mt-4">

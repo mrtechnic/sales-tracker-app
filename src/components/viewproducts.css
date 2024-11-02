@@ -25,7 +25,20 @@
     padding: 10px;
   }
 
-  
-  .table td:hover{
-    background-color: #f2f2f2;
+  .pagination {
+    margin-top: 20px;
   }
+  
+  .pagination button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #052e16;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .pagination button:hover {
+    background-color: darkred; /* Darker shade for hover effect */
+  }
+  

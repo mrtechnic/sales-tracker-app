@@ -1,0 +1,110 @@
+/* General container styling */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  /* Sidebar and main content */
+  .app-body {
+    display: flex;
+    flex: 1;
+  }
+  
+  .content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  /* Card styling */
+  .sales-records-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border: none;
+  }
+  
+  .sales-records-card .card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  /* Table styling */
+  .table {
+    margin-top: 20px;
+  }
+  
+  .table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  .table td, .table th {
+    padding: 12px;
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .return-row {
+    background-color: #ffe6e6; /* Light red for return rows */
+  }
+  
+  .type-sale {
+    color: #28a745; /* Green for sale type */
+  }
+  
+  .type-return {
+    color: #dc3545; /* Red for return type */
+  }
+  
+  /* Search bar styling */
+  #searchbar {
+    margin-top: 20px;
+  }
+  
+  #searchbar input {
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+  
+  /* Total sales styling */
+  .total-sales {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: right;
+  }
+  
+  .pagination-container {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .pagination-btn {
+    padding: 8px 12px;
+    border: none;
+    background-color: transparent;
+    color: #0056b3;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .pagination-btn.active {
+    background-color: #0056b3;
+    color: #fff;
+    border-radius: 4px;
+  }
+  
+  .pagination-btn:disabled {
+    color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .pagination-btn:not(.active):hover {
+    background-color: #e0e0e0;
+  }
+  

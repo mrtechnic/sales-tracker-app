@@ -1,0 +1,26 @@
+.app-body {
+    display: flex;
+  }
+  
+  .content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .staff-view-inventory-container {
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px rgba(0, 0, 0, 0.1);
+  }
+  
+  .table {
+    width: 100%;
+    color: white; /* Text color for the table */
+  }
+  
+  .table th, .table td {
+    border: 1px solid white; /* Border for the table cells */
+    padding: 10px;
+    text-align: left;
+  }
+  

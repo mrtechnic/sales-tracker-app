@@ -49,7 +49,7 @@ const CreateBranch = () => {
                   className="form-control"
                 />
               </div>
-              <button type="submit" className="btn btn-primary">Create Branch</button>
+              <button type="submit" className="btn-branch">Create Branch</button>
             </form>
           </div>
         </div>

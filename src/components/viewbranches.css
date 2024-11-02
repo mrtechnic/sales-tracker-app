@@ -25,3 +25,7 @@
     padding: 10px;
   }
   
+  .edit-btn, .del-btn:hover {
+    color: white !important; 
+  }
+  

@@ -1,77 +1,70 @@
-/* salesrecords.css */
-
 .app-container {
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
 
 .app-body {
   display: flex;
-  margin-top: 0;
-}
-
-.navbar {
-  width: 100%;
-  background-color: #343a40;
-  color: #fff;
-  padding: 10px 20px;
-}
-
-.sidebar {
-  width: 250px;
-  background-color: #212529;
-  height: 100%;
+  flex: 1;
 }
 
 .content {
-  flex-grow: 1;
+  flex: 1;
   padding: 20px;
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .sales-records-card {
-  margin-top: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-  
-  .sales-records-card .card-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .form-label {
-    font-weight: bold;
-  }
-  
-  .table thead {
-    background-color: #f8f9fa;
-  }
-  
-  .table th, .table td {
-    padding: 10px;
-    color: #333;
-  }
-  
-  .refund-row {
-    background-color: #fff5f5;
-  }
-  
-  .type-sale {
-    color: green;
-  }
-  
-  .type-refund {
-    color: red;
-  }
-  
-  .total-sales {
-    margin-top: 20px;
-    font-size: 1.1rem;
-    color: #333;
-  }
+.total-sales {
+  margin-top: 20px;
+}
 
+.return-row {
+  background-color: #f8d7da; /* Light red for return rows */
+}
+
+.type-sale {
+  color: green; /* Sale type color */
+}
+
+.type-return {
+  color: rgb(224, 47, 47); /* Return type color */
+}
+
+/* Add styles for the pagination */
+.pagination-container-g {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 20px;
+}
+
+.pagination-btn-g {
+  background-color: transparent ;
+  color: #052e16;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: bold;
   
+}
+
+.pagination-btn-g:hover {
+  background-color: #1d3b28;
+}
+
+.pagination-btn-g:disabled {
+  background-color: #1d3b28; /* Darker shade for disabled state */
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.pagination-btn-g .active {
+  background-color: #1d3b28; /* Highlight active page button */
+  color: #fff;
+  border-radius: 4px;
+}
+

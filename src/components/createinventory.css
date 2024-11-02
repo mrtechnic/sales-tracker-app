@@ -59,10 +59,10 @@
     border: 1px solid #ccc;
   }
   
-  .btn-primary {
+  .btn-inventory {
     width: 100%;
     padding: 10px;
-    background-color: red !important;
+    background-color: #004b2f !important;
     border: none !important;
     color: white;
     border-radius: 5px;

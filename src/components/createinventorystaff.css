@@ -1,0 +1,10 @@
+.btn-inventory-staff {
+    width: 100%;
+    padding: 10px;
+    background-color: #172554 !important;
+    border: none !important;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }

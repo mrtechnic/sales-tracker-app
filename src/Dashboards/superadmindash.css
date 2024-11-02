@@ -12,7 +12,7 @@
     justify-content: space-between;
     gap: 50px; /* Space between the charts */
     margin-bottom: 30px; /* Space between charts and recent sales */
-    width: 135%;
+    width: 150%;
   }
   
   /* Card styles for charts */
@@ -28,7 +28,7 @@
   .recent-sales-container {
     flex: 1;
     margin-top: 20px;
-    width: 135%;
+    width: 150%;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }

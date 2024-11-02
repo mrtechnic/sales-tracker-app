@@ -14,7 +14,7 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg navbar-dark bg-light py-1"> 
       <div className="container-fluid d-flex justify-content-between align-items-center"> 
         {/* Left side - Welcome message */}
-        <h1 className="h6" style={{ color: '#e02f2f', margin: 0 }}>
+        <h1 className="h6" style={{ color: '#004b2f', margin: 0 }}>
           <strong>Welcome, Back!</strong>
         </h1> 
 
@@ -35,7 +35,7 @@ const Navbar = () => {
             onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.2)'}  // Scale on hover
             onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}    // Back to original size
           >
-            <i className="fas fa-expand" aria-hidden="true" style={{color: '#e02f2f'}}></i>
+            <i className="fas fa-expand" aria-hidden="true" style={{color: '#004b2f'}}></i>
           </button>
 
           {/* Logout Button */}
@@ -52,8 +52,8 @@ const Navbar = () => {
             onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}    // Back to original size
             onClick={() => window.location.href = '/'}  // Replace with actual logout logic
           >
-            <i className="fas fa-sign-out-alt" aria-hidden="true" style={{color: '#e02f2f'}}></i>
-            <strong style={{ color: '#e02f2f' }}> Sign Out</strong>
+            <i className="fas fa-sign-out-alt" aria-hidden="true" style={{color: '#004b2f'}}></i>
+            <strong style={{ color: '#004b2f' }}> Sign Out</strong>
           </button>
         </div>
       </div>

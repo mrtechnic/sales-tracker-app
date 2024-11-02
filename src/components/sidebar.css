@@ -1,6 +1,6 @@
 
 .nav-link {
-  background-color: rgb(224, 47, 47) !important;  
+  background-color: #052e16 !important;  
   color: white !important;            
   transition: background-color 0.3s ease, color 0.3s ease; 
   padding: 0.75rem 1rem;            
@@ -10,18 +10,18 @@
 
 .nav-link:hover {
   background-color: white !important; 
-  color: rgb(224, 47, 47) !important;
+  color: #052e16 !important;
 }
 
 
 .nav-link.active {
   background-color: white !important; 
-  color: rgb(224, 47, 47) !important;  
+  color: #052e16 !important;  
 }
 
 .nav-link.active:hover {
   background-color: white !important; 
-  color: rgb(224, 47, 47) !important;             
+  color: #052e16 !important;             
 }
 
 .dropdown-content {
@@ -37,6 +37,7 @@
 
 .dash{
   border-bottom: 5px solid white;
+  font-weight: 500;
 }
 
 .dash h4:hover{

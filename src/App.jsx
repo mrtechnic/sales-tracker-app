@@ -1,3 +1,4 @@
+import React from 'react';
 import LogIn from './pages/LogIn/LogIn';
 import AdminLogin from './pages/adminLogin/adminLogin';
 import SuperAdminLogin from './pages/superAdminLogin/SuperAdminLogin';
@@ -12,40 +13,43 @@ import ViewInventory from './components/ViewInventory';
 import CreateStaff from './components/CreateStaff';
 import ViewStaffs from './components/ViewStaffs';
 import Analytics from './components/Analytics';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import StaffDashboard from './Dashboards/StaffDashboard';
+import StaffRecordPage from './components/StaffRecordPage';
+import ViewSalesRecord from './components/ViewSalesRecord';
+import CreateInventoryStaff from './components/CreateInventoryStaff';
+import StaffViewInventory from './components/StaffViewInventory';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import './App.css';
 
-
 function App() {
- 
-
   return (
-    <>
-      <Router>
-        <Routes>
-          <Route exact path="/" element={<LogIn />}/>
-          <Route path="/admin-login" element={<AdminLogin />} />
-          <Route path="/SuperAdminLogin" element={<SuperAdminLogin />} />
-          <Route path="/superAdminDash" element={<SuperAdminDash />} />  
-          <Route path="/CreateProduct" element={<CreateProduct />} />
-          <Route path="/ViewProducts" element={<ViewProducts />} />
-          <Route path="/CreateBranch" element={<CreateBranch />} />
-          <Route path="/ViewBranches" element={<ViewBranches />} />
-          <Route path="/CreateInventory" element={<CreateInventory />} />
-          <Route path="/ViewInventory" element={<ViewInventory />} />
-          <Route path="/CreateStaff" element={<CreateStaff />} />
-          <Route path="/ViewStaffs" element={<ViewStaffs />} />
-          <Route path="/Analytics" element={<Analytics />} />
-          <Route path="/ViewSalesRecords" element={<ViewSalesRecords />} />
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<LogIn />} />
+        <Route path="/admin-login" element={<AdminLogin />} />
+        <Route path="/superAdminLogin" element={<SuperAdminLogin />} />
+        <Route path="/superAdminDash" element={<SuperAdminDash />} />
+        <Route path="/createProduct" element={<CreateProduct />} />
+        <Route path="/viewProducts" element={<ViewProducts />} />
+        <Route path="/createBranch" element={<CreateBranch />} />
+        <Route path="/viewBranches" element={<ViewBranches />} />
+        <Route path="/createInventory" element={<CreateInventory />} />
+        <Route path="/viewInventory" element={<ViewInventory />} />
+        <Route path="/createStaff" element={<CreateStaff />} />
+        <Route path="/viewStaffs" element={<ViewStaffs />} />
+        <Route path="/viewSalesRecords" element={<ViewSalesRecords />} />
+        <Route path="/analytics" element={<Analytics />} />
+        <Route path="/StaffDashboard" element={<StaffDashboard />} />
+        <Route path="/StaffRecordPage" element={<StaffRecordPage />} />
+        <Route path="/ViewSalesRecord" element={<ViewSalesRecord branchName="Branch A" staffName="Mikasa Ackerman"/>} />
+        <Route path="/CreateInventoryStaff" element={<CreateInventoryStaff />} />
+        <Route path="/StaffViewInventory" element={<StaffViewInventory />} />
 
-        </Routes>
-      </Router>
-      
-    </>
-  )
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
