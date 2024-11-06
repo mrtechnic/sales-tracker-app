@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Table, Card, Form } from 'react-bootstrap';
-import Navbar from './NavBar';
 import StaffSidebar from './StaffSideBar';
 import './viewsalesrecord.css'; // Import the CSS file
 
@@ -48,11 +47,10 @@ const handlePageClick = (pageNumber) => {
 };
 
   return (
-    <div className="app-container">
-      <Navbar />
-      <div className="app-body">
+    <div>
+    <div className="app-body">
         <StaffSidebar />
-        <div className="content">
+        <div className="app-container">
           <Card className="sales-records-card mt-4">
             <Card.Body>
               <Card.Title><strong>{branchName} Sales Records - {staffName}</strong></Card.Title>

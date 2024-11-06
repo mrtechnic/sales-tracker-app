@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import Sidebar from '../components/SideBar';
-import Navbar from '../components/NavBar';
 import BarChart from '../components/BarChart'; 
 import DoughnutChart from '../components/DoughnutChart'; 
 import RecentSalesOrder from '../components/RecentSalesOrder';
@@ -65,7 +64,6 @@ const SuperAdminDash = () => {
 
   return (
     <div>
-      {/* <Navbar /> */}
       <div className="app-body">
         <Sidebar />
         <div className="dashboard-container">

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Navbar from './NavBar';
 import StaffSidebar from './StaffSideBar';
 import './staffrecordpage.css';
 
@@ -45,7 +44,6 @@ const StaffRecordPage = () => {
 
   return (
     <div>
-      <Navbar />
       <div className="record-page-container">
         <StaffSidebar />
         <div className="content">
