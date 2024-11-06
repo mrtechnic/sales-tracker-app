@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-// import Navbar from './NavBar';
 import Sidebar from './SideBar';
-import './CreateBranch.css'; // Ensure CSS is imported
+import './createbranch.css'; 
 
 const CreateBranch = () => {
   const [branchName, setBranchName] = useState('');
