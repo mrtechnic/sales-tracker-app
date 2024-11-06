@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./sidebar.css";
-import { Link } from "react-router-dom";
 
 const Sidebar = ({ onSelectCategory, selectedCategory }) => {
   const [openDropdown, setOpenDropdown] = useState(null);

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-// import Navbar from './NavBar';
 import Sidebar from './SideBar';
-import './CreateStaff.css'; // Add a CSS file for styling
+import './createstaff.css'; 
 
 const CreateStaff = () => {
   const [staffName, setStaffName] = useState('');
