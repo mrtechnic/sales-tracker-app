@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Table, Card, Form } from 'react-bootstrap';
-// import Navbar from './NavBar';
 import Sidebar from './SideBar';
 import './viewsalesrecords.css';
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Table, Card, Form } from 'react-bootstrap';
 import Navbar from './NavBar';
 import StaffSidebar from './StaffSideBar';
-import './ViewSalesRecord.css'; // Import the CSS file
+import './viewsalesrecord.css'; // Import the CSS file
 
 const ViewSalesRecord = ({ branchName, staffName }) => {
   const [currentPage, setCurrentPage] = useState(1);
