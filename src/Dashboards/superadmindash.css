@@ -6,6 +6,7 @@
     padding: 20px;
     position: relative;
     left: 17rem;
+    width: 81%;
   }
   
   /* Top section for charts */
@@ -14,7 +15,7 @@
     justify-content: space-between;
     gap: 50px; /* Space between the charts */
     margin-bottom: 30px; /* Space between charts and recent sales */
-    width: 150%;
+    width: 100%;
   }
   
   /* Card styles for charts */
@@ -33,6 +34,7 @@
     width: 150%;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
   }
   
   
