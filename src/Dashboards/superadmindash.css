@@ -4,6 +4,8 @@
     flex-direction: column;
     height: 100vh;
     padding: 20px;
+    position: relative;
+    left: 17rem;
   }
   
   /* Top section for charts */

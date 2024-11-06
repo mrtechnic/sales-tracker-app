@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Navbar from './NavBar';
+// import Navbar from './NavBar';
 import Sidebar from './SideBar';
 import './CreateBranch.css'; // Ensure CSS is imported
 
@@ -15,10 +15,10 @@ const CreateBranch = () => {
 
   return (
     <div>
-      <Navbar />
-      <div className="app-body"> {/* Sidebar and form container */}
-        <Sidebar /> {/* Sidebar on the left */}
-        <div className="content"> {/* Form content on the right */}
+      {/* <Navbar /> */}
+      <div className="app-body"> 
+        <Sidebar /> 
+        <div className="content"> 
           <div className="create-branch-container">
             <form onSubmit={handleSubmit} className="form-container">
               <div className="form-group">

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Navbar from './NavBar';
+// import Navbar from './NavBar';
 import Sidebar from './SideBar';
-import './CreateProduct.css'; // Add a CSS file for styling
+import './createproduct.css'; 
 
 const CreateProduct = () => {
   const [productName, setProductName] = useState('');
@@ -15,7 +15,7 @@ const CreateProduct = () => {
 
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="app-body">
         <Sidebar />
         <div className="content">

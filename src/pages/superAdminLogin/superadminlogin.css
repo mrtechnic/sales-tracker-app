@@ -4,16 +4,18 @@
     padding: 20px; 
     background-color: white; 
     border-radius: 10px; 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    height: 50vh; 
 }
  
 .staff-btn-login{
-    background-color: blue;
+    background-color: #172554;
     display: grid;
-    color: aliceblue;
+    color: white;
     height: 40px;
     align-items: center;
     border-radius: 5px;
+    width: 100%;
 }
 
 .staff-btn-login:hover{

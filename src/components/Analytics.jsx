@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from './NavBar';
+// import Navbar from './NavBar';
 import Sidebar from './SideBar';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
@@ -56,7 +56,7 @@ const Analytics = () => {
 
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="app-body">
         <Sidebar />
         <div className="dashboard-container">

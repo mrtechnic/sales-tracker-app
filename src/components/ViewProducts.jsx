@@ -1,17 +1,28 @@
 import React, { useState } from 'react';
-import Navbar from './NavBar';
 import Sidebar from './SideBar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faEdit, faTrash, faSave } from '@fortawesome/free-solid-svg-icons';
 import './viewproducts.css';
 
 const ViewProducts = () => {
-  // Sample static data for products and inventory
   const [products, setProducts] = useState([
     { id: 1, name: 'Product 1', price: '$10.00', description: 'Description of Product 1' },
     { id: 2, name: 'Product 2', price: '$20.00', description: 'Description of Product 2' },
     { id: 3, name: 'Product 3', price: '$30.00', description: 'Description of Product 3' },
   ]);
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 5;
+  const totalPages = Math.ceil(products.length / productsPerPage);
+
+  const handlePageClick = (page) => {
+    setCurrentPage(page);
+  };
+
+  const paginatedProducts = products.slice(
+    (currentPage - 1) * productsPerPage,
+    currentPage * productsPerPage
+  )
 
   const [inventory] = useState([
     { productId: 1, quantityAvailable: 100 },
@@ -23,75 +34,70 @@ const ViewProducts = () => {
   const [editingProduct, setEditingProduct] = useState(null);
   const [productFormData, setProductFormData] = useState({ name: '', price: '', description: '' });
 
-  // Function to get remaining quantity for a specific product
   const getRemainingQuantity = (productId) => {
     const productInventory = inventory.find(item => item.productId === productId);
     return productInventory ? productInventory.quantityAvailable : 0;
   };
 
-  // Handle view action to toggle inventory display
   const handleView = (productId) => {
     setSelectedProduct((prev) => (prev === productId ? null : productId));
   };
 
-  // Handle edit action
   const handleEdit = (product) => {
     setEditingProduct(product.id);
     setProductFormData({ name: product.name, price: product.price, description: product.description });
   };
 
-  // Function to handle product form changes
   const handleFormChange = (e) => {
     const { name, value } = e.target;
     setProductFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Handle product update
-  const handleUpdate = (id) => {
-    setProducts((prev) => prev.map(product => (product.id === id ? { ...product, ...productFormData } : product)));
+  const handleSaveChanges = (productId) => {
+    setProducts((prev) =>
+      prev.map(product =>
+        product.id === productId ? { ...product, ...productFormData } : product
+      )
+    );
     setEditingProduct(null);
     setProductFormData({ name: '', price: '', description: '' });
   };
 
-  // Handle delete action
   const handleDelete = (id) => {
     setProducts((prev) => prev.filter(product => product.id !== id));
-    // Reset selected product if deleted
     if (selectedProduct === id) setSelectedProduct(null);
   };
 
-  // Function to get inventory details for the selected product
   const getInventoryDetails = () => {
     return inventory.find(item => item.productId === selectedProduct);
   };
 
   return (
     <div>
-      <Navbar />
       <div className="app-body">
         <Sidebar />
-        <div className="content">
-          <div className="view-products-container">
-            <h2><strong>PRODUCTS</strong></h2>
-            <input
-              type="text"
-              placeholder="Search products..."
-              style={{ marginTop: '20px', border: 'solid 2px' }}
-            />
-            <table className="table table-striped">
-              <thead>
-                <tr>
-                  <th>Product Name</th>
-                  <th>Price</th>
-                  <th>Description</th>
-                  <th>Remaining Inventory</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {products.map((product) => (
-                  <tr key={product.id}>
-                    <td>{editingProduct === product.id ? (
+        <div className="view-products-container">
+          <h2><strong>PRODUCTS</strong></h2>
+          <input
+            type="text"
+            placeholder="Search Products"
+            style={{ marginTop: '20px', border: 'solid 2px', width: '10%' }}
+          />
+          <table className="table table-striped">
+            <thead>
+              <tr>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Remaining Inventory</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {paginatedProducts.map((product) => (
+                <tr key={product.id}>
+                  <td>
+                    {editingProduct === product.id ? (
                       <input
                         type="text"
                         name="name"
@@ -100,8 +106,10 @@ const ViewProducts = () => {
                       />
                     ) : (
                       product.name
-                    )}</td>
-                    <td>{editingProduct === product.id ? (
+                    )}
+                  </td>
+                  <td>
+                    {editingProduct === product.id ? (
                       <input
                         type="text"
                         name="price"
@@ -110,8 +118,10 @@ const ViewProducts = () => {
                       />
                     ) : (
                       product.price
-                    )}</td>
-                    <td>{editingProduct === product.id ? (
+                    )}
+                  </td>
+                  <td>
+                    {editingProduct === product.id ? (
                       <input
                         type="text"
                         name="description"
@@ -120,62 +130,91 @@ const ViewProducts = () => {
                       />
                     ) : (
                       product.description
-                    )}</td>
-                    <td>{getRemainingQuantity(product.id)}</td>
-                    <td>
-                      <span 
-                        style={{ marginRight: '15px', cursor: 'pointer', color: '#052e16' }}
+                    )}
+                  </td>
+                  <td>{getRemainingQuantity(product.id)}</td>
+                  <td>
+                    <div className="action-btn">
+                      <button 
+                        className="view-btn"
                         onClick={() => handleView(product.id)}
                       >
                         <FontAwesomeIcon icon={faEye} title="View" />
-                      </span>
-                      <span 
-                        style={{ marginRight: '15px', cursor: 'pointer', color: '#052e16' }}
-                        onClick={() => handleEdit(product)}
-                      >
-                        <FontAwesomeIcon icon={faEdit} title="Edit" />
-                      </span>
-                      <span 
-                        style={{ cursor: 'pointer', color: '#052e16' }}
+                      </button>
+                      {editingProduct === product.id ? (
+                        <button 
+                          className="save-btn"
+                          onClick={() => handleSaveChanges(product.id)}
+                        > Save
+                        </button>
+                      ) : (
+                        <button 
+                          className="edit-btn"
+                          onClick={() => handleEdit(product)}
+                        >
+                          <FontAwesomeIcon icon={faEdit} title="Edit" />
+                        </button>
+                      )}
+                      <button 
+                        className="del-btn"
                         onClick={() => handleDelete(product.id)}
                       >
                         <FontAwesomeIcon icon={faTrash} title="Delete" />
-                      </span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
 
-            {/* Inventory details section */}
-            {selectedProduct && (
-              <div className="inventory-details">
-                <h3>Inventory Details for {products.find(p => p.id === selectedProduct).name}</h3>
-                <table className="table table-striped">
-                  <thead>
-                    <tr>
-                      <th>Product ID</th>
-                      <th>Quantity Available</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>{selectedProduct}</td>
-                      <td>{getInventoryDetails().quantityAvailable}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            )}
+          <div className="pagination-container-g">
+            <button 
+            className="pagination-btn-g"
+            onClick={() => handlePageClick(Math.max(currentPage - 1, 1))}
+            disabled={currentPage === 1}
+            >
+              Previous 
+            </button>
 
-            {/* Update product details after editing */}
-            {editingProduct && (
-              <div className="edit-product-container">
-                <h3>Edit Product</h3>
-                <button onClick={() => handleUpdate(editingProduct)}>Update</button>
-              </div>
-            )}
+              {[...Array(totalPages)].map((_, index) => (
+                <button
+                key={index + 1}
+                className={`pagination-btn-g ${currentPage === index + 1 ? 'active' : ''}`}
+                onClick={() => handlePageClick(index + 1)}
+                >
+                  {index + 1}
+                </button>
+              ))}
+
+              <button
+              className="pagination-btn-g"
+              onClick={() => handlePageClick(Math.min(currentPage + 1, totalPages))}
+              disabled={currentPage === totalPages}
+              >
+                Next
+              </button>
           </div>
+
+          {selectedProduct && (
+            <div className="inventory-details">
+              <h3>Inventory Details for {products.find(p => p.id === selectedProduct).name}</h3>
+              <table className="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Product ID</th>
+                    <th>Quantity Available</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{selectedProduct}</td>
+                    <td>{getInventoryDetails().quantityAvailable}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          )}
         </div>
       </div>
     </div>

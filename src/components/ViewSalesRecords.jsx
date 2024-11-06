@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Table, Card, Form } from 'react-bootstrap';
-import Navbar from './NavBar';
+// import Navbar from './NavBar';
 import Sidebar from './SideBar';
 import './viewsalesrecords.css';
 
@@ -58,11 +58,11 @@ const ViewSalesRecords = () => {
   }
 
   return (
-    <div className="app-container">
-      <Navbar />
+    <div>
+      {/* <Navbar /> */}
       <div className="app-body">
         <Sidebar />
-        <div className="content">
+        <div className="app-container">
           <Card className="sales-records-card mt-4">
             <Card.Body>
               <Card.Title><strong>SALES RECORDS</strong></Card.Title>

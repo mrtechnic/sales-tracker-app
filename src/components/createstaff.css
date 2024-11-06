@@ -5,6 +5,8 @@
     height: 100vh;
     padding: 20px;
     color: black;
+    position: relative;
+    left: 10rem;
   }
   
   .staff-title {

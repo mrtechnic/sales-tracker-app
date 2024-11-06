@@ -3,18 +3,6 @@
   display: flex;
 }
 
-.sidebar {
-  width: 250px; /* Sidebar width */
-  background-color: #f8f9fa;
-}
-
-.content {
-  flex-grow: 1; /* Ensures the content takes up remaining space */
-  padding: 20px;
-  background-color: #f0f0f0; /* Optional: background color for content */
-}
-
-/* Existing Styles for Create Branch Form */
 .create-branch-container {
   display: flex;
   justify-content: center;
@@ -24,17 +12,19 @@
   color: black;
 }
 
-.branch-name {
-  text-align: center; 
-  margin-bottom: 20px; 
-}
-
-.branch-name h2 {
+.branch-name h2{
   font-size: 20px;
   color: black;
   margin: 0;
   font-weight: bold;
+  background-color: white;
 }
+
+.branch-name{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 
 .form-container {
   background-color: #fff;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Navbar from './NavBar';
+// import Navbar from './NavBar';
 import Sidebar from './SideBar';
 import './createinventory.css'; 
 
@@ -15,7 +15,7 @@ const CreateInventory = () => {
 
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="app-body">
         <Sidebar />
         <div className="content">

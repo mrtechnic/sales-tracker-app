@@ -65,7 +65,7 @@ const SuperAdminDash = () => {
 
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="app-body">
         <Sidebar />
         <div className="dashboard-container">

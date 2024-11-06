@@ -4,14 +4,16 @@
     flex-direction: column;
     height: 100vh;
     padding: 20px;
+    position: relative;
+    
 }
 
 /* Top section for charts */
 .charts-container {
     display: flex;
     justify-content: space-between;
-    gap: 50px; /* Space between the charts */
-    margin-bottom: 30px; /* Space between charts and monthly sales */
+    gap: 50px; 
+    margin-bottom: 30px; 
 }
 
 /* Card styles for charts */

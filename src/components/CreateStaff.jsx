@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Navbar from './NavBar';
+// import Navbar from './NavBar';
 import Sidebar from './SideBar';
 import './CreateStaff.css'; // Add a CSS file for styling
 
@@ -18,7 +18,7 @@ const CreateStaff = () => {
 
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="app-body">
         <Sidebar />
         <div className="content">

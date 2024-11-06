@@ -52,7 +52,7 @@ const LogIn = () => {
   return (
     <div>
         <div className="login-container">
-        <h2 className="text-center" style={{color: "blue"}}>Staff Login</h2>
+        <h2 className="text-center" style={{color: "#172554"}}>Staff Login</h2>
         <form id="login-form" className="mt-4" onSubmit={handleSubmit} >
             <div className="form-group">
                 <label htmlFor="username">Email</label>
@@ -64,14 +64,14 @@ const LogIn = () => {
             </div>
             {error && <div className="text-danger text-center">{error}</div>}
             <div className="text-center">
-            <button type="submit" className="super-admin-btn" style={{color: 'white', backgroundColor: 'blue', border: 'none', height: '40px', width: '30%', borderRadius: '5px'}} disabled={loading}> {loading ? 'Signing In...' : 'Sign In'}</button>
+            <button type="submit" className="super-admin-btn" style={{color: 'white', backgroundColor: '#172554', border: 'none', height: '40px', width: '30%', borderRadius: '5px'}} disabled={loading}> {loading ? 'Signing In...' : 'Sign In'}</button>
             </div>
             <div className="text-center mt-3">
                 <Link to="#" className="btn btn-link">Forgot Password?</Link>
             </div>
         </form>
         <div className="text-center mt-3">
-            <div className="super-log"><Link to="/SuperAdminLogin" style={{backgroundColor: 'red', color: 'white', height: '40px', padding: '5px', borderRadius: '5px'}}>Super Admin Login</Link></div>
+            <div className="super-log"><Link to="/SuperAdminLogin" style={{backgroundColor: '#052e16', color: 'white', height: '40px', padding: '5px', borderRadius: '5px'}}>Super Admin Login</Link></div>
             {/* <div><Link to="/admin-login" className="btn btn-warning">Admin Login</Link></div>  */}
         </div>
     </div>

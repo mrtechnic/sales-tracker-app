@@ -40,11 +40,26 @@
   font-weight: 500;
 }
 
-.dash h4:hover{
+/* .dash h4:hover{
   font-size: 30px;
-}
+  transition: all 0.3s ease-in-out;
+} */
 
 .dash-items{
   margin: 30px 0;
   padding: 20px 0;
+}
+
+.admin-sidebar{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.parent-sidebar{
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  height: 100%;
 }
