@@ -6,22 +6,6 @@ body{
     box-sizing: border-box;
 }
 
-.sidebar-bg {
-    background-color: #172554; /* Main dark blue background */
-    min-height: 100vh;
-    padding: 20px;
-  }
-  
-  /* Sidebar Heading */
-  .sidebar-heading{
-    color: white;
-    border-bottom: 5px solid white;
-  }
-
-  .sidebar-heading h4:hover{
-    font-size: 30px;
-  }
-
   .side-item{
     font-weight: 500;
     text-decoration: none;
@@ -48,11 +32,6 @@ body{
     
   }
 
-  .side-link:hover {
-    background-color: white;
-    color: #172554;
-    text-decoration: none;
-  }
   
   /* Active Link Styling */
   .side-link.active{

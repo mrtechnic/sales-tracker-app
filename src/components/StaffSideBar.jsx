@@ -4,24 +4,28 @@ import './staffsidebar.css';
 const StaffSidebar = ({ onSelectCategory, selectedCategory }) => {
   const [openDropdown, setOpenDropdown] = useState(null);
 
-  // Function to handle both category selection and dropdown toggle
+ 
   const handleCategoryClick = (category) => {
     if (openDropdown === category) {
-      // Close the dropdown if it's open
       setOpenDropdown(null);
-      onSelectCategory(null);  // Deselect the category
+      onSelectCategory(null);  
     } else {
-      // Open the dropdown and select the category
       setOpenDropdown(category);
       onSelectCategory(category);
     }
   };
 
   return (
-    <div className="sidebar-bg">
-      <div className="sidebar-heading">
+    <div className="sidebar-bg"
+    style={{ width: "200px", backgroundColor: "#172554"}}>
+      <div className="admin-sidebar">
+        <div>
+      <div className="dash">
         <a href="/StaffDashboard" className="text-decoration-none mb-4">
-          <h4 className="fs-4 text-white" style={{ padding: '0 15px', margin: '10px' }}><strong> DASHBOARD </strong></h4>
+          <h4 className="fs-4 text-white" 
+          style={{ padding: '0 15px', margin: '10px' }}>
+            <strong> DASHBOARD </strong>
+            </h4>
         </a>
       </div>
       <div className="dash-items">
@@ -80,6 +84,8 @@ const StaffSidebar = ({ onSelectCategory, selectedCategory }) => {
           </li>
         </ul>
       </div>
+      </div>
+    </div>
     </div>
   );
 };

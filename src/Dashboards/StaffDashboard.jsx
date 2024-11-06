@@ -2,7 +2,6 @@ import React from 'react';
 import { Card, Container } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
-import Navbar from '../components/NavBar';
 import StaffSidebar from '../components/StaffSideBar';
 import RecentSalesOrder from '../components/RecentSalesOrder';
 import './staffdashboard.css';
@@ -17,7 +16,6 @@ const StaffDashboard = () => {
 
   return (
     <div>
-      <Navbar />
       <div className="app-body">
         <StaffSidebar />
         <div className="staff-dashboard-container">
@@ -28,7 +26,9 @@ const StaffDashboard = () => {
                   <Card.Body>
                     <Card.Title>{product.name}</Card.Title>
                     <div className="inventory-info">
-                      <span className="product-number">{product.quantity} in stock</span>
+                      <span className="product-number"> 
+                      <span className="quantity-figure">{product.quantity}</span> in stock
+                      </span>
                       <span className="arrow-indicator">
                         <FontAwesomeIcon 
                           icon={product.quantity > 50 ? faArrowUp : faArrowDown} 

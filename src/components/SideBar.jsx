@@ -4,14 +4,12 @@ import "./sidebar.css";
 const Sidebar = ({ onSelectCategory, selectedCategory }) => {
   const [openDropdown, setOpenDropdown] = useState(null);
 
-  // Function to handle both category selection and dropdown toggle
+  
   const handleCategoryClick = (category) => {
     if (openDropdown === category) {
-      // Close the dropdown if it's open
       setOpenDropdown(null);
-      onSelectCategory(null); // Deselect the category
+      onSelectCategory(null); 
     } else {
-      // Open the dropdown and select the category
       setOpenDropdown(category);
       onSelectCategory(category);
     }
@@ -20,7 +18,7 @@ const Sidebar = ({ onSelectCategory, selectedCategory }) => {
   return (
     <div
       className="parent-sidebar"
-      style={{ width: "250px", backgroundColor: "#052e16" }}
+      style={{ width: "200px", backgroundColor: "#052e16" }}
     >
       <div className="admin-sidebar">
         <div>
