@@ -21,7 +21,6 @@ const StaffViewInventory = () => {
     <div>
       <div className="app-body">
         <StaffSidebar />
-        <div className="content">
           <div className="staff-view-inventory-container">
             <h2><strong>INVENTORY - {currentBranch.branch}</strong></h2>
             {currentBranch.items.length === 0 ? (
@@ -49,7 +48,6 @@ const StaffViewInventory = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 
