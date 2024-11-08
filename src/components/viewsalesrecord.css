@@ -5,6 +5,7 @@
     height: 100vh;
     position: relative;
     width: 85%;
+    left: 12.5rem;
     
   }  
     
@@ -13,8 +14,6 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     border: none;
-    left: -16.5rem;
-    top: -1rem;
   }
   
   .sales-records-card .card-title {
