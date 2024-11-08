@@ -19,7 +19,7 @@ const StaffDashboard = () => {
       <div className="app-body">
         <StaffSidebar />
         <div className="staff-dashboard-container">
-          <Container fluid>
+          <Container>
             <div className="product-inventory-row">
               {productInventory.map((product) => (
                 <Card className="product-inventory-card" key={product.id}>

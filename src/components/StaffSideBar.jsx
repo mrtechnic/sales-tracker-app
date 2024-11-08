@@ -18,7 +18,7 @@ const StaffSidebar = ({ onSelectCategory, selectedCategory }) => {
   return (
     <div className="sidebar-bg"
     style={{ width: "200px", backgroundColor: "#172554"}}>
-      <div className="admin-sidebar">
+      <div className="staff-sidebar">
         <div>
       <div className="dash">
         <a href="/StaffDashboard" className="text-decoration-none mb-4">
@@ -84,6 +84,31 @@ const StaffSidebar = ({ onSelectCategory, selectedCategory }) => {
           </li>
         </ul>
       </div>
+      
+      </div>
+      <div>
+      <button
+            className="btn btn-outline-secondary toggle-button"
+            style={{
+              padding: "10px",
+              border: "none",
+              backgroundColor: "transparent",
+              cursor: "pointer",
+              transition: "transform 0.2s", // Transition for smooth scaling
+            }}
+            onMouseOver={(e) =>
+              (e.currentTarget.style.transform = "scale(1.2)")
+            } // Scale on hover
+            onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")} // Back to original size
+            onClick={() => (window.location.href = "/")} // Replace with actual logout logic
+          >
+            <i
+              className="fas fa-sign-out-alt"
+              aria-hidden="true"
+              style={{ color: "#fff" }}
+            ></i>
+            <strong style={{ color: "#fff" }}> Sign Out</strong>
+          </button>
       </div>
     </div>
     </div>
