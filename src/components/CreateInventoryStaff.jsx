@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Navbar from './NavBar';
 import StaffSidebar from './StaffSideBar';
 import './createinventorystaff.css'
 
@@ -15,7 +14,6 @@ const CreateInventoryStaff = () => {
 
   return (
     <div>
-      <Navbar />
       <div className="app-body">
         <StaffSidebar />
         <div className="content">
