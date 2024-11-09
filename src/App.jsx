@@ -21,6 +21,7 @@ import StaffViewInventory from './components/StaffViewInventory';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'font-awesome/css/font-awesome.min.css';
+import '../node_modules/font-awesome/css/font-awesome.min.css';
 import './App.css';
 
 function App() {
