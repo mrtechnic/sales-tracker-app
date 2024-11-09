@@ -86,7 +86,7 @@ const Analytics = () => {
               <Card className="chart-bar">
                 <Card.Body>
                   <Card.Title><strong>Best-Selling Products</strong></Card.Title>
-                  <ResponsiveContainer width="100%" height={250} style={{padding: '50px', marginTop: '-40px', transform: 'scale(1.0)'}}>
+                  <ResponsiveContainer width="100%" height={250} style={{ marginTop: '-40px', transform: 'scale(0.6)'}}>
                     <PieChart>
                       <Pie
                         data={pieData}
@@ -123,7 +123,7 @@ const Analytics = () => {
                       <option value={2023}>2023</option>
                     </select>
                   </div>
-                  <ResponsiveContainer width="100%" height={200} style={{padding: '10px', marginTop: '-30px', marginLeft: '-10px', transform: 'scale(1.0)'}}>
+                  <ResponsiveContainer width="100%" height={200} style={{ marginTop: '-30px', marginLeft: '-20px', transform: 'scale(0.9)'}}>
                     <LineChart data={filteredMonthlyData}>
                       <CartesianGrid strokeDasharray="3 3" />
                       <XAxis dataKey="month" label={{ value: "Month", position: "insideBottomRight", offset: 0 }} />
@@ -142,7 +142,7 @@ const Analytics = () => {
               <Card className="chart-bar">
                 <Card.Body>
                   <Card.Title><strong>Yearly Sales Trends</strong></Card.Title>
-                  <ResponsiveContainer width="100%" height={200} style={{padding: '10px', marginTop: '10px', marginLeft: '-10px', transform: 'scale(1.0)' }}>
+                  <ResponsiveContainer width="100%" height={200} style={{ marginTop: '10px', marginLeft: '-20px', transform: 'scale(0.9)' }}>
                     <LineChart data={salesTrendData}>
                       <CartesianGrid strokeDasharray="3 3" />
                       <XAxis dataKey="year" />
