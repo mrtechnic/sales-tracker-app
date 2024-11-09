@@ -19,7 +19,7 @@
 /* Card styles for charts */
 .chart-bar {
     flex: 1;
-    height: 40vh; /* Adjust chart height */
+    height: 50vh; /* Adjust chart height */
     margin: 10px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

@@ -66,7 +66,7 @@ const Analytics = () => {
               <Card className="chart-bar">
                 <Card.Body>
                   <Card.Title><strong>Sales by Product</strong></Card.Title>
-                  <ResponsiveContainer width="100%" height={300}>
+                  <ResponsiveContainer width="110%" height={200} style={{padding: '5px', marginTop: '-10px', marginLeft: '-40px'}}>
                     <BarChart data={data}>
                       <CartesianGrid strokeDasharray="3 3" />
                       <XAxis dataKey="name" />
@@ -86,7 +86,7 @@ const Analytics = () => {
               <Card className="chart-bar">
                 <Card.Body>
                   <Card.Title><strong>Best-Selling Products</strong></Card.Title>
-                  <ResponsiveContainer width="100%" height={300}>
+                  <ResponsiveContainer width="100%" height={300} style={{padding: '50px', marginTop: '-60px'}}>
                     <PieChart>
                       <Pie
                         data={pieData}
@@ -116,14 +116,14 @@ const Analytics = () => {
                   <Card.Title><strong>Monthly Sales Trends (January to December)</strong></Card.Title>
                   <div className="d-flex justify-content-center mb-3">
                     {/* Dropdown to select year */}
-                    <select onChange={(e) => setSelectedYear(parseInt(e.target.value))} value={selectedYear}>
+                    <select onChange={(e) => setSelectedYear(parseInt(e.target.value))} value={selectedYear} style={{transform: 'scale(0.6)', marginTop: '-10px'}}>
                       <option value={2020}>2020</option>
                       <option value={2021}>2021</option>
                       <option value={2022}>2022</option>
                       <option value={2023}>2023</option>
                     </select>
                   </div>
-                  <ResponsiveContainer width="100%" height={300} style={{padding: '0 10px 20px', paddingBottom: '20px', marginLeft: '-30px'}}>
+                  <ResponsiveContainer width="120%" height={200} style={{padding: '10px', marginTop: '-30px', marginLeft: '-50px'}}>
                     <LineChart data={filteredMonthlyData}>
                       <CartesianGrid strokeDasharray="3 3" />
                       <XAxis dataKey="month" label={{ value: "Month", position: "insideBottomRight", offset: 0 }} />
@@ -142,7 +142,7 @@ const Analytics = () => {
               <Card className="chart-bar">
                 <Card.Body>
                   <Card.Title><strong>Yearly Sales Trends</strong></Card.Title>
-                  <ResponsiveContainer width="100%" height={300} style={{padding: '0 10px 20px', marginTop: '50px', marginLeft: '-40px' }}>
+                  <ResponsiveContainer width="120%" height={200} style={{padding: '10px', marginTop: '10px', marginLeft: '-60px' }}>
                     <LineChart data={salesTrendData}>
                       <CartesianGrid strokeDasharray="3 3" />
                       <XAxis dataKey="year" />
